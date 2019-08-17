@@ -2,8 +2,11 @@ package android.huyhuynh.orderapp;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
+import android.huyhuynh.orderapp.views.MenuActivity;
+import android.huyhuynh.orderapp.views.SplashWellcome;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -14,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
+    ConstraintLayout constrainLayoutMainAC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +41,25 @@ public class MainActivity extends AppCompatActivity {
         IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
         if (intentResult!=null){
             if (intentResult.getContents()==null){
+                //Không quét ra hoặc bấm phím back
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, SplashWellcome.class);
+                startActivity(intent);
+                finish();
             } else {
                 try {
                     JSONObject jsonObject = new JSONObject(intentResult.getContents());
-                    int maban = jsonObject.getInt("maban");
+                    String maban = jsonObject.getString("maban");
                     int current = (int) System.currentTimeMillis();
                     Toast.makeText(this,maban,Toast.LENGTH_LONG);
+                    if (maban.equals("coffee05")){
+                        Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(this, "Không quét được!", Toast.LENGTH_LONG).show();
+                        recreate();
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -52,4 +68,5 @@ public class MainActivity extends AppCompatActivity {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
+
 }

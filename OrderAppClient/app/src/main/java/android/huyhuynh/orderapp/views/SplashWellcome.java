@@ -102,10 +102,17 @@ public class SplashWellcome extends AppCompatActivity {
     public void goMainActivity(){
         Intent intent = new Intent(SplashWellcome.this, MainActivity.class);
         startActivity(intent);
-        finish();
     }
 
     public void loadHomepage(View view) {
         goMainActivity();
+    }
+
+    //load lại khi bị back
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        recreate();
     }
 }
