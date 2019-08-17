@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/fastfood"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        android:hardwareAccelerated="true">
         <activity android:name=".views.SplashWellcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +26,10 @@
         <activity android:name=".MainActivity">
 
         </activity>
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            tools:replace="screenOrientation" />
     </application>
 
 </manifest>
