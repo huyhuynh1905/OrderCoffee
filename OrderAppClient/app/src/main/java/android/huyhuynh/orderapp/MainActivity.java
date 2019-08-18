@@ -6,7 +6,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.huyhuynh.orderapp.views.MenuActivity;
-import android.huyhuynh.orderapp.views.SplashWellcome;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -43,9 +42,11 @@ public class MainActivity extends AppCompatActivity {
             if (intentResult.getContents()==null){
                 //Không quét ra hoặc bấm phím back
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(MainActivity.this, SplashWellcome.class);
+                /*Intent intent = new Intent(MainActivity.this, SplashWellcome.class);
                 startActivity(intent);
-                finish();
+                finish();*/
+                Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                startActivity(intent);
             } else {
                 try {
                     JSONObject jsonObject = new JSONObject(intentResult.getContents());
