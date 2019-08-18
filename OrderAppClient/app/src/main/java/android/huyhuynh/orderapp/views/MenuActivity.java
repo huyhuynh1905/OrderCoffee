@@ -9,10 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
+
 public class MenuActivity extends AppCompatActivity {
-    private TextView mTextMessage;
+    TextView txtBan, txtHuongdan;
+    Button btnOrder;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -21,10 +25,10 @@ public class MenuActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menuNav:
-                    mTextMessage.setText("Menu");
+                    txtHuongdan.setText("Kích chọn thức uống để order:");
                     return true;
                 case R.id.orderNav:
-                    mTextMessage.setText("Order");
+                    txtHuongdan.setText("Đã chọn:");
                     return true;
             }
             return false;
@@ -36,8 +40,15 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        init();
+    }
+
+    private void init() {
+        txtBan = findViewById(R.id.txtBan);
+        txtHuongdan = findViewById(R.id.txtHuongdan);
+        btnOrder = findViewById(R.id.btnOrder);
     }
 
 }
