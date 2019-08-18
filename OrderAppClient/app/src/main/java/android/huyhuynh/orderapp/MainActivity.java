@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         intentIntegrator.setOrientationLocked(false);
         intentIntegrator.setBeepEnabled(false); //Tiếng kêu sau khi quét xong
         intentIntegrator.setBarcodeImageEnabled(true);
-        intentIntegrator.setTimeout(8000); //Thời gian cho đến khi kết thúc
+        intentIntegrator.setTimeout(3000); //Thời gian cho đến khi kết thúc
         intentIntegrator.initiateScan();
     }
 

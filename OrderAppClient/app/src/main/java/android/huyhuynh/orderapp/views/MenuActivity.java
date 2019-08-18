@@ -7,6 +7,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.MenuItem;
 import android.widget.Button;
@@ -23,15 +26,19 @@ public class MenuActivity extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment fragment = null;
             switch (item.getItemId()) {
                 case R.id.menuNav:
                     txtHuongdan.setText("Kích chọn thức uống để order:");
-                    return true;
+                    fragment = new FragmentListMenu();
+                    break;
                 case R.id.orderNav:
                     txtHuongdan.setText("Đã chọn:");
-                    return true;
+                    fragment = new FragmentListOrder();
+                    break;
             }
-            return false;
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameFragment,fragment).commit();
+            return true;
         }
     };
 
@@ -41,7 +48,8 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameFragment,
+                new FragmentListMenu()).commit();
         init();
     }
 
