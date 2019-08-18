@@ -8,12 +8,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 

@@ -16,7 +16,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
-    ConstraintLayout constrainLayoutMainAC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();*/
                 Intent intent = new Intent(MainActivity.this, MenuActivity.class);
                 startActivity(intent);
+                finish();
             } else {
                 try {
                     JSONObject jsonObject = new JSONObject(intentResult.getContents());
