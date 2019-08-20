@@ -2,13 +2,12 @@ package android.huyhuynh.orderapp;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.huyhuynh.orderapp.views.MenuActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -18,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
-    ImageButton btnImgQuetma;
+    ImageView btnImgQuetma;
     IntentIntegrator intentIntegrator;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
