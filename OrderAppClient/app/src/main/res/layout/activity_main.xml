@@ -1,8 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/constrainLayoutMainAC"/>
+    android:orientation="vertical"
+    android:id="@+id/constrainLayoutMainAC"
+    android:weightSum="8">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:background="@color/colorBgr">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#fff"
+            android:text="Hướng Dẫn Sử Dụng"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/sfubaskervillebookitalic"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfubemboldmedium"
+            android:textColor="#2394BC"
+            android:textSize="15sp"
+            android:paddingLeft="20dp"
+            android:gravity="left"
+            android:text="B1: Kết nối wifi &quot;Order Coffee&quot; của cửa \nhàng với Password là: &quot;appordercoffee&quot;. "
+        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1">
+            <ImageView
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:src="@drawable/conectwifi"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfubemboldmedium"
+            android:textColor="#442B77"
+            android:textSize="15sp"
+            android:paddingLeft="20dp"
+            android:gravity="left"
+            android:text="B2: Mở CH Play lên, gõ tên ứng dụng\n&quot;Order Coffee&quot; và cài đặt ứng dụng."
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:src="@drawable/chplayapp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfubemboldmedium"
+            android:textColor="#0F5424"
+            android:textSize="15sp"
+            android:paddingLeft="20dp"
+            android:gravity="left"
+            android:text="B3: Mở ứng dụng, click &quot;Start&quot; và quét \nmã QR code ở trên bàn."
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:src="@drawable/qrcode"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfubemboldmedium"
+            android:textColor="#AC670D"
+            android:textSize="15sp"
+            android:paddingLeft="20dp"
+            android:gravity="left"
+            android:text="B4: Chọn thức uống sau đó nhấn vào \nnút&quot;Order ngay!&quot;để hoàn thành \nđặt thức uống và chờ đợi được phục vụ."
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:src="@drawable/orderhd"/>
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="103dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp"
+            android:src="@drawable/bckgrhd" />
+
+        <ImageButton
+            android:id="@+id/btnImgQuetma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="160dp"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="152dp"
+            android:layout_marginRight="152dp"
+            android:background="@android:color/transparent"
+            android:onClick="loadQRCamera"
+            android:src="@drawable/btnquetma" />
+
+
+    </RelativeLayout>
+</LinearLayout>
