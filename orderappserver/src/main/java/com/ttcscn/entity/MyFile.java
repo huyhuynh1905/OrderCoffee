@@ -1,4 +1,4 @@
-package com.ttcscn.model;
+package com.ttcscn.entity;
 
 import java.io.Serializable;
 

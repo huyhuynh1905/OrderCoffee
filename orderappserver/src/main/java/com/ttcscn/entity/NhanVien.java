@@ -1,4 +1,4 @@
-package com.ttcscn.model;
+package com.ttcscn.entity;
 
 public class NhanVien {
 	private String username;

@@ -1,11 +1,22 @@
-package com.ttcscn.model;
+package com.ttcscn.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name = "menu")
 public class Menu {
+	
+	@Id
 	private String maThucUong;
+	
 	private String tenThucUong;
+	
 	private double donGia;
+	
 	private String hinhAnh;
+	
 	private String ghiChu;
+	
 	
 	public Menu() {
 		super();
@@ -65,6 +76,5 @@ public class Menu {
 		return "Menu [maThucUong=" + maThucUong + ", tenThucUong=" + tenThucUong + ", donGia=" + donGia + ", hinhAnh="
 				+ hinhAnh + ", ghiChu=" + ghiChu + "]";
 	}
-	
 	
 }

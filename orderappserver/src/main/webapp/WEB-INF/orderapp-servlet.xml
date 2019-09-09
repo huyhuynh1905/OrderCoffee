@@ -14,6 +14,9 @@
 	<context:component-scan
 		base-package="com.ttcscn.controller" />
 		
+	<import resource="classpath:IoC.xml"/>
+		
+	<!-- Cấu hình để upload file -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="268435456" />
