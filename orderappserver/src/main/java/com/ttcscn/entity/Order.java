@@ -1,11 +1,24 @@
 package com.ttcscn.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name = "order")
 public class Order {
+	
+	@Id
 	private String maOrder;
+	
+	@Id
 	private String maBan;
+	
+	@Id
 	private String maThucUong;
+	
 	private int soLuong;
+	
 	private double donGiaOrder;
+	
 	private String ghiChu;
 	
 	public Order() {

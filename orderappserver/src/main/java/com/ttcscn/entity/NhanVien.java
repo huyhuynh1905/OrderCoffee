@@ -1,12 +1,24 @@
 package com.ttcscn.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name = "nhanvien")
 public class NhanVien {
+	
+	@Id
 	private String username;
+	
 	private String password;
+	
 	private String hoTen;
+	
 	private int namSinh;
+	
 	private String soDienThoai;
+	
 	private String diaChi;
+	
 	private boolean chucVu;
 	
 	public NhanVien() {

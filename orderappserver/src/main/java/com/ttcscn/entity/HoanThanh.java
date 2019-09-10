@@ -1,8 +1,16 @@
 package com.ttcscn.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name = "hoanthanh")
 public class HoanThanh {
+	
+	@Id
 	private String maOrder;
+	
 	private double tongGia;
+	
 	private String tinhTrang;
 	
 	public HoanThanh() {

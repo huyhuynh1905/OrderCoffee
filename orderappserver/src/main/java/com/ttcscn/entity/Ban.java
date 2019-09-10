@@ -1,8 +1,16 @@
 package com.ttcscn.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name = "ban")
 public class Ban {
+	
+	@Id
 	private String maBan;
+	
 	private String tenBan;
+	
 	private String moTa;
 	
 	public Ban() {

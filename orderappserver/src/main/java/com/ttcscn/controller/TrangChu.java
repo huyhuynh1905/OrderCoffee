@@ -7,8 +7,6 @@ import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,21 +19,14 @@ import com.ttcscn.entity.Menu;
 @RequestMapping("/")
 public class TrangChu {
 	
-	@Autowired
-	SessionFactory sessionHibernate;
 	
-	@GetMapping
-	@ResponseBody
-	@Transactional
-	public String trangChu() {
-		Session session = sessionHibernate.getCurrentSession();
-		String sql = "from menu";
-		List<Menu> arrMenu = session.createQuery(sql).getResultList(); //Trả về một list còn chỉ 1 thì getSingleResult()
-		for(Menu mn : arrMenu) {
-			System.out.println(mn.toString());
-		}
-		return "Thành công!";
-	}
+	
+	
+	
+	
+	
+	
+	
 	/*
 	@RequestMapping(value = "/uploadanh", method = RequestMethod.POST)
 	@ResponseBody
