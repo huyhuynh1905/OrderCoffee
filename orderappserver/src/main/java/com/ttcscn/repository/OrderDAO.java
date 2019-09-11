@@ -5,9 +5,13 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.ttcscn.entity.HoanThanh;
 import com.ttcscn.entity.Order;
 
+@Repository("orderDao")
 public class OrderDAO implements Dao<Order> {
 	
 	@Autowired
@@ -29,13 +33,20 @@ public class OrderDAO implements Dao<Order> {
 		session.update(t);
 	}
 
-	public void delete(Order t) {
-		Session session = sessionHibernate.getCurrentSession();
-		session.remove(t);
+	public void delete(Order order) {
+		HoanThanh hoanthanh = new HoanThanh(order.getMaOrder(), order.getDonGiaOrder(), "Huy");
+		hoanthanhDao.save(hoanthanh);
 	}
 
 	public Order findById(String id) {
 		return null;
+	}
+	@Autowired
+	HoanThanhDAO hoanthanhDao;
+	//hoanthanhOrder
+	public void changeOrder(Order order) {
+		HoanThanh hoanthanh = new HoanThanh(order.getMaOrder(), order.getDonGiaOrder(), "HoanThanh");
+		hoanthanhDao.save(hoanthanh);
 	}
 	
 

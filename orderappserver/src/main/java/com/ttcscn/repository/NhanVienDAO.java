@@ -2,15 +2,15 @@ package com.ttcscn.repository;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ttcscn.entity.NhanVien;
 
-@Transactional
+@Repository("nhanvienDao")
 public class NhanVienDAO implements Dao<NhanVien>{
 	
 	@Autowired
@@ -40,6 +40,15 @@ public class NhanVienDAO implements Dao<NhanVien>{
 	public NhanVien findById(String username) {
 		Session session = sessionHibernate.getCurrentSession();
 		return session.get(NhanVien.class, username);
+	}
+	
+	public boolean loginToServer(String username,String password) {
+		Session session = sessionHibernate.getCurrentSession();
+		String sql = "from nhanvien where username = "+username+" and password = "+password;
+		NhanVien nv = (NhanVien) session.createQuery(sql).getSingleResult();
+		if(nv!=null) {
+			return true;
+		} else return false;
 	}
 
 }
