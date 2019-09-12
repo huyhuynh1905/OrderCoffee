@@ -8,11 +8,9 @@ public class Order {
 	
 	@Id
 	private String maOrder;
-	
-	@Id
+
 	private String maBan;
-	
-	@Id
+
 	private String maThucUong;
 	
 	private int soLuong;

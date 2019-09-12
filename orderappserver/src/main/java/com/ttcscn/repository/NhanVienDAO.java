@@ -22,19 +22,22 @@ public class NhanVienDAO implements Dao<NhanVien>{
 		return arrNv;
 	}
 
-	public void save(NhanVien t) {
+	public String save(NhanVien t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.save(t);
+		return "";
 	}
 
-	public void update(NhanVien t) {
+	public String update(NhanVien t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.update(t);
+		return "";
 	}
 
-	public void delete(NhanVien t) {
+	public String delete(NhanVien t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.delete(t);
+		return "";
 	}
 
 	public NhanVien findById(String username) {

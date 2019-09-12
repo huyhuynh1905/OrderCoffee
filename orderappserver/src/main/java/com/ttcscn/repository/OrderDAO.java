@@ -23,31 +23,33 @@ public class OrderDAO implements Dao<Order> {
 		return arrOrder;
 	}
 
-	public void save(Order t) {
+	public String save(Order t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.save(t);
+		return "";
 	}
 
-	public void update(Order t) {
+	public String update(Order t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.update(t);
+		return "";
 	}
 
-	public void delete(Order order) {
+	public String delete(Order order) {
 		HoanThanh hoanthanh = new HoanThanh(order.getMaOrder(), order.getDonGiaOrder(), "Huy");
 		hoanthanhDao.save(hoanthanh);
+		return "";
 	}
 
 	public Order findById(String id) {
 		return null;
 	}
-	@Autowired
+	
 	HoanThanhDAO hoanthanhDao;
 	//hoanthanhOrder
 	public void changeOrder(Order order) {
 		HoanThanh hoanthanh = new HoanThanh(order.getMaOrder(), order.getDonGiaOrder(), "HoanThanh");
 		hoanthanhDao.save(hoanthanh);
 	}
-	
 
 }

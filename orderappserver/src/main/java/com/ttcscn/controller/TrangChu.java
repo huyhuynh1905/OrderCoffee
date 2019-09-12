@@ -19,7 +19,11 @@ import com.ttcscn.entity.Menu;
 @RequestMapping("/")
 public class TrangChu {
 	
-	
+	@GetMapping
+	@ResponseBody
+	public String getAllListMenu() {
+		return "Trang Chủ";
+	}
 	
 	
 	

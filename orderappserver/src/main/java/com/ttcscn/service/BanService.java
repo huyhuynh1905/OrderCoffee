@@ -10,6 +10,7 @@ import com.ttcscn.entity.Ban;
 import com.ttcscn.repository.BanDAO;
 
 @Service("banService")
+@Transactional
 public class BanService {
 
 	@Autowired
@@ -19,19 +20,16 @@ public class BanService {
 		return banDao.getAll();
 	}
 	
-	@Transactional
-	public void saveBan(Ban ban) {
-		banDao.save(ban);
+	public String saveBan(Ban ban) {
+		return banDao.save(ban);
 	}
 	
-	@Transactional
-	public void updateBan(Ban ban) {
-		banDao.update(ban);
+	public String updateBan(Ban ban) {
+		return banDao.update(ban);
 	}
 	
-	@Transactional
-	public void deleteBan(Ban ban) {
-		banDao.delete(ban);
+	public String deleteBan(Ban ban) {
+		return banDao.delete(ban);
 	}
 	
 	@Transactional

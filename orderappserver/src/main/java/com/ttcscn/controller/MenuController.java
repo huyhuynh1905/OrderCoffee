@@ -2,37 +2,83 @@ package com.ttcscn.controller;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.ttcscn.dto.MenuDto;
 import com.ttcscn.entity.Menu;
+import com.ttcscn.service.MenuService;
 
-@Controller
-@RequestMapping("/menu")
+@RestController
 public class MenuController {
 
 	@Autowired
-	SessionFactory sessionHibernate;
+	MenuService menuService;
 	
-	
-	//Lấy ra danh sách menu
-	@GetMapping
+	@RequestMapping(value = "/menu/get", method = RequestMethod.GET)
 	@ResponseBody
-	@Transactional
-	public String trangChu() {
-		Session session = sessionHibernate.getCurrentSession();
-		String sql = "from menu";
-		List<Menu> arrMenu = session.createQuery(sql).getResultList(); //Trả về một list còn chỉ 1 thì getSingleResult()
-		for(Menu mn : arrMenu) {
-			System.out.println(mn.toString());
+	public List<Menu> getAllListMenu() {
+		List<Menu> arrMenu = menuService.getAllList();
+		return arrMenu;
+	}
+
+	@RequestMapping(value = "/menu/add", method = RequestMethod.POST)
+	@ResponseBody
+	public MenuDto saveMenu(@RequestBody Menu menu) {
+		MenuDto menuDto = new MenuDto();
+		Menu menufromData = menuService.findItemById(menu.getMaThucUong());
+		if(menufromData!=null) {
+			menuDto.setStatus("Failse");
+			menuDto.setMessage("Da ton tai thuc uong nay");
+		} else {
+			String mess = menuService.saveMenu(menu);
+			menuDto.setStatus("Success");
+			menuDto.setMessage(mess);
 		}
-		return "Thành công!";
+		return menuDto;
+	}
+	
+	@RequestMapping(value = "/menu/update", method = RequestMethod.POST)
+	@ResponseBody
+	public MenuDto updateMenu(@RequestBody Menu menu) {
+		MenuDto menuDto = new MenuDto();
+		Menu menufromData = menuService.findItemById(menu.getMaThucUong());
+		if(menufromData==null) {
+			menuDto.setStatus("Failse");
+			menuDto.setMessage("Khong tim thay thuc uong nay");
+		} else {
+			String mess = menuService.updateMenu(menu);
+			menuDto.setStatus("Success");
+			menuDto.setMessage(mess);
+		}
+		return menuDto;
+	}
+	
+	@RequestMapping(value = "/menu/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public MenuDto deleteMenu(@RequestBody Menu menu) {
+		MenuDto menuDto = new MenuDto();
+		Menu menufromData = menuService.findItemById(menu.getMaThucUong());
+		if(menufromData==null) {
+			menuDto.setStatus("Failse");
+			menuDto.setMessage("Khong tim thay thuc uong nay");
+		} else {
+			String mess = menuService.deleteMenu(menu);
+			menuDto.setStatus("Success");
+			menuDto.setMessage(mess);
+		}
+		return menuDto;
+	}
+	
+	@RequestMapping(value = "/menu/find", method = RequestMethod.GET)
+	@ResponseBody
+	public Menu findById(@RequestParam("maThucUong") String maThucUong) {
+		Menu menu = menuService.findItemById(maThucUong);
+		return menu;
 	}
 }

@@ -22,19 +22,22 @@ public class HoanThanhDAO implements Dao<HoanThanh> {
 		return arrHoanThanh;
 	}
 
-	public void save(HoanThanh t) {
+	public String save(HoanThanh t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.save(t);
+		return "";
 	}
 
-	public void update(HoanThanh t) {
+	public String update(HoanThanh t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.update(t);
+		return "";
 	}
 
-	public void delete(HoanThanh t) {
+	public String delete(HoanThanh t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.remove(t);
+		return "";
 	}
 
 	public HoanThanh findById(String maOrder) {

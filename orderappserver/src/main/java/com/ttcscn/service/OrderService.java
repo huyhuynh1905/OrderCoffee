@@ -34,9 +34,9 @@ public class OrderService {
 	public void deleteOrder(Order order) {
 		orderDao.delete(order);
 	}
-	
+	/*
 	@Transactional
 	public void hoanThanhOrder(Order order) {
 		orderDao.changeOrder(order);
-	}
+	}*/
 }

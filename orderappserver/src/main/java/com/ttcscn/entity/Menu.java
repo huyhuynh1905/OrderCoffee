@@ -1,10 +1,12 @@
 package com.ttcscn.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity(name = "menu")
-public class Menu {
+public class Menu implements Serializable {
 	
 	@Id
 	private String maThucUong;

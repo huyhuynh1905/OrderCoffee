@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.ttcscn.entity.Menu;
 
@@ -23,19 +22,22 @@ public class MenuDAO implements Dao<Menu>{
 		return arrMenu;
 	}
 
-	public void save(Menu t) {
+	public String save(Menu t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.save(t);
+		return "Save OK";
 	}
 
-	public void update(Menu t) {
+	public String update(Menu t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.update(t);
+		return "Update OK";
 	}
 
-	public void delete(Menu t) {
+	public String delete(Menu t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.remove(t);
+		return "Remove OK";
 	}
 
 	public Menu findById(String maThucUong) {

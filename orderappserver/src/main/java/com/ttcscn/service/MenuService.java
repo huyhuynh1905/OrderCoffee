@@ -10,32 +10,28 @@ import com.ttcscn.entity.Menu;
 import com.ttcscn.repository.MenuDAO;
 
 @Service("menuService")
+@Transactional
 public class MenuService {
 
 	@Autowired
 	MenuDAO menuDao;
 	
-	@Transactional
 	public List<Menu> getAllList(){
 		return menuDao.getAll();
 	}
 	
-	@Transactional
-	public void saveMenu(Menu menu) {
-		menuDao.save(menu);
+	public String saveMenu(Menu menu) {
+		return menuDao.save(menu);
 	}
 	
-	@Transactional
-	public void updateMenu(Menu menu) {
-		menuDao.update(menu);
+	public String updateMenu(Menu menu) {
+		return menuDao.update(menu);
 	}
 	
-	@Transactional
-	public void deleteMenu(Menu menu) {
-		menuDao.delete(menu);
+	public String deleteMenu(Menu menu) {
+		return menuDao.delete(menu);
 	}
 	
-	@Transactional
 	public Menu findItemById(String maThucUong) {
 		return menuDao.findById(maThucUong);
 	}

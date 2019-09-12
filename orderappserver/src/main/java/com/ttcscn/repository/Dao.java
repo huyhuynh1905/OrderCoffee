@@ -8,11 +8,11 @@ public interface Dao<T> {
 
 	List<T> getAll();
  
-    void save(T t);
+    String save(T t);
  
-    void update(T t);
+    String update(T t);
  
-    void delete(T t);
+    String delete(T t);
     
     T findById(String id);
     
