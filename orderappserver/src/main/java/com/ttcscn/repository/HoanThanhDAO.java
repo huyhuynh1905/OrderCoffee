@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.ttcscn.entity.HoanThanh;
 
@@ -25,24 +24,24 @@ public class HoanThanhDAO implements Dao<HoanThanh> {
 	public String save(HoanThanh t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.save(t);
-		return "";
+		return "Thêm thành công!";
 	}
 
 	public String update(HoanThanh t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.update(t);
-		return "";
+		return "Update thành công!";
 	}
 
 	public String delete(HoanThanh t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.remove(t);
-		return "";
+		return "Xoá thành công!";
 	}
 
-	public HoanThanh findById(String maOrder) {
+	public HoanThanh findById(String maDaOrder) {
 		Session session = sessionHibernate.getCurrentSession();
-		return session.get(HoanThanh.class, maOrder);
+		return session.get(HoanThanh.class, maDaOrder);
 	}
 	
 	

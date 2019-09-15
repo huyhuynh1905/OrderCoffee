@@ -10,37 +10,32 @@ import com.ttcscn.entity.NhanVien;
 import com.ttcscn.repository.NhanVienDAO;
 
 @Service("nhanvienService")
+@Transactional
 public class NhanVienService {
 	
 	@Autowired
 	NhanVienDAO nhanvienDao;
 	
-	@Transactional
 	public List<NhanVien> getAllList(){
 		return nhanvienDao.getAll();
 	}
 	
-	@Transactional
-	public void saveNhanVien(NhanVien nv) {
-		nhanvienDao.save(nv);
+	public String saveNhanVien(NhanVien nv) {
+		return nhanvienDao.save(nv);
 	}
 	
-	@Transactional
-	public void updateNhanVien(NhanVien nv) {
-		nhanvienDao.update(nv);
+	public String updateNhanVien(NhanVien nv) {
+		return nhanvienDao.update(nv);
 	}
 	
-	@Transactional
-	public void deleteNhanVien(NhanVien nv) {
-		nhanvienDao.delete(nv);
+	public String deleteNhanVien(NhanVien nv) {
+		return nhanvienDao.delete(nv);
 	}
 	
-	@Transactional
 	public NhanVien findNhanVienById(String username) {
 		return nhanvienDao.findById(username);
 	}
 	
-	@Transactional
 	public boolean loginToServer(String username, String password) {
 		return nhanvienDao.loginToServer(username, password);
 	}

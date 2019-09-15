@@ -10,33 +10,29 @@ import com.ttcscn.entity.HoanThanh;
 import com.ttcscn.repository.HoanThanhDAO;
 
 @Service("hoanthanhService")
+@Transactional
 public class HoanThanhService {
 
 	@Autowired
 	HoanThanhDAO hoanthanhDao;
 	
-	@Transactional
 	public List<HoanThanh> getAllList(){
 		return hoanthanhDao.getAll();
 	}
 	
-	@Transactional
-	public void saveHt(HoanThanh ht) {
-		hoanthanhDao.save(ht);
+	public String saveHt(HoanThanh ht) {
+		return hoanthanhDao.save(ht);
 	}
 	
-	@Transactional
-	public void updateHt(HoanThanh ht) {
-		hoanthanhDao.update(ht);
+	public String updateHt(HoanThanh ht) {
+		return hoanthanhDao.update(ht);
 	}
 	
-	@Transactional
-	public void deleteHt(HoanThanh ht) {
-		hoanthanhDao.delete(ht);
+	public String deleteHt(HoanThanh ht) {
+		return hoanthanhDao.delete(ht);
 	}
 	
-	@Transactional
-	public HoanThanh findHtById(String maOrder) {
-		return hoanthanhDao.findById(maOrder);
+	public HoanThanh findHtById(String maDaOrder) {
+		return hoanthanhDao.findById(maDaOrder);
 	}
 }

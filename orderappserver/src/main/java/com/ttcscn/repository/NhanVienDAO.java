@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.ttcscn.entity.NhanVien;
 
@@ -25,19 +24,19 @@ public class NhanVienDAO implements Dao<NhanVien>{
 	public String save(NhanVien t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.save(t);
-		return "";
+		return "Thêm nhân viên thành công!";
 	}
 
 	public String update(NhanVien t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.update(t);
-		return "";
+		return "Update nhân viên thành công!";
 	}
 
 	public String delete(NhanVien t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.delete(t);
-		return "";
+		return "Xoá thành công!";
 	}
 
 	public NhanVien findById(String username) {
@@ -47,8 +46,9 @@ public class NhanVienDAO implements Dao<NhanVien>{
 	
 	public boolean loginToServer(String username,String password) {
 		Session session = sessionHibernate.getCurrentSession();
-		String sql = "from nhanvien where username = "+username+" and password = "+password;
-		NhanVien nv = (NhanVien) session.createQuery(sql).getSingleResult();
+		String query = "from User where username=? and password=?";
+		String sql = "from nhanvien nv where nv.username = "+username+" and nv.password = "+password;
+		List<NhanVien> nv = session.createQuery(sql).getResultList();
 		if(nv!=null) {
 			return true;
 		} else return false;

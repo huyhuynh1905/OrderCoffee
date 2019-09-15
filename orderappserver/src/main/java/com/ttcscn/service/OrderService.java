@@ -10,33 +10,31 @@ import com.ttcscn.entity.Order;
 import com.ttcscn.repository.OrderDAO;
 
 @Service("orderService")
+@Transactional
 public class OrderService {
 
 	@Autowired
 	OrderDAO orderDao;
 	
-	@Transactional
 	public List<Order> getAllList(){
 		return orderDao.getAll();
 	}
 	
-	@Transactional
-	public void saveOrder(Order order) {
-		orderDao.save(order);
+	public String saveOrder(Order order) {
+		return orderDao.save(order);
 	}
 	
-	@Transactional
-	public void updateOrder(Order order) {
-		orderDao.update(order);
+	public String updateOrder(Order order) {
+		return orderDao.update(order);
 	}
 	
-	@Transactional
-	public void deleteOrder(Order order) {
-		orderDao.delete(order);
+	public String deleteOrder(Order order) {
+		return orderDao.delete(order);
 	}
-	/*
-	@Transactional
+	public Order findOrder(String maOrder) {
+		return orderDao.findById(maOrder);
+	}
 	public void hoanThanhOrder(Order order) {
 		orderDao.changeOrder(order);
-	}*/
+	}
 }

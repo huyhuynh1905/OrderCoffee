@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class HoanThanh {
 	
 	@Id
-	private String maOrder;
+	private String maDaOrder;
 	
 	private double tongGia;
 	
@@ -17,19 +17,19 @@ public class HoanThanh {
 		super();
 	}
 
-	public HoanThanh(String maOrder, double tongGia, String tinhTrang) {
+	public HoanThanh(String maDaOrder, double tongGia, String tinhTrang) {
 		super();
-		this.maOrder = maOrder;
+		this.maDaOrder = maDaOrder;
 		this.tongGia = tongGia;
 		this.tinhTrang = tinhTrang;
 	}
 
-	public String getMaOrder() {
-		return maOrder;
+	public String getMaDaOrder() {
+		return maDaOrder;
 	}
 
 	public void setMaOrder(String maOrder) {
-		this.maOrder = maOrder;
+		this.maDaOrder = maOrder;
 	}
 
 	public double getTongGia() {
@@ -50,7 +50,7 @@ public class HoanThanh {
 
 	@Override
 	public String toString() {
-		return "HoanThanh [maOrder=" + maOrder + ", tongGia=" + tongGia + ", tinhTrang=" + tinhTrang + "]";
+		return "HoanThanh [maOrder=" + maDaOrder + ", tongGia=" + tongGia + ", tinhTrang=" + tinhTrang + "]";
 	}
 
 	
