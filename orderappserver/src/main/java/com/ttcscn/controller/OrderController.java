@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ttcscn.dto.MenuDto;
 import com.ttcscn.dto.OrderDto;
-import com.ttcscn.entity.Menu;
 import com.ttcscn.entity.Order;
 import com.ttcscn.service.OrderService;
 

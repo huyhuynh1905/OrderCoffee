@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="175dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#AC0D19"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/txtTenThucUongDialog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="24sp"
+                android:fontFamily="@font/sfubemboldmedium"
+                android:text="Nước Cam"
+                android:textColor="#FFF"
+                android:textStyle="bold"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            >
+
+            <ImageView
+                android:id="@+id/imgHinhAnhDialog"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/water"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/txtSoluongDialog"
+                        android:layout_width="wrap_content"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/sfudinengalt"
+                        android:textColor="#685454"
+                        android:layout_height="wrap_content"
+                        android:text="Số lượng: " />
+
+                    <EditText
+                        android:id="@+id/edtSoluong"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:background="#FFF"
+                        android:hint="0"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        android:inputType="number" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgBtnUp"
+
+                            android:layout_marginTop="3dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/zxing_transparent"
+                            app:srcCompat="@drawable/btntang" />
+
+                        <ImageButton
+                            android:id="@+id/imgBtnDown"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/zxing_transparent"
+                            app:srcCompat="@drawable/btngiam" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtTongGiaDialog"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#685454"
+                    android:fontFamily="@font/sfudinengalt"
+                    android:textSize="18sp"
+                    android:text="Giá: 5000vnđ" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

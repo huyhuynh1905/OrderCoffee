@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.huyhuynh.orderapp.views.MenuActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -16,15 +17,19 @@ import com.google.zxing.integration.android.IntentResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     ImageView btnImgQuetma;
     IntentIntegrator intentIntegrator;
+    public static List<Menu> arrMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Ánh xạ
-        btnImgQuetma = findViewById(R.id.btnImgQuetma);
+        init();
+
 
         intentIntegrator = new IntentIntegrator(this);
         intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE); //Kiểu quét
@@ -34,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         intentIntegrator.setBarcodeImageEnabled(true);
         intentIntegrator.setTimeout(3000); //Thời gian cho đến khi kết thúc
         //intentIntegrator.initiateScan();
+    }
+
+    private void init() {
+        btnImgQuetma = findViewById(R.id.btnImgQuetma);
+
     }
 
 

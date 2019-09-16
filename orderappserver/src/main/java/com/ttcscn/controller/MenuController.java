@@ -20,9 +20,9 @@ public class MenuController {
 	@Autowired
 	MenuService menuService;
 	
-	@RequestMapping(value = "/menu/get", method = RequestMethod.GET)
+	@RequestMapping(value = "/menu/get", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Menu> getAllListMenu() {
+	public List<Menu> getAllListMenu(@RequestParam("maBan") String maBan) {
 		List<Menu> arrMenu = menuService.getAllList();
 		return arrMenu;
 	}
