@@ -18,7 +18,7 @@ public class OrderDAO implements Dao<Order> {
 
 	public List<Order> getAll() {
 		Session session = sessionHibernate.getCurrentSession();
-		List<Order> arrOrder = session.createQuery("from order").getResultList();
+		List<Order> arrOrder = session.createQuery("from ordertable").getResultList();
 		return arrOrder;
 	}
 

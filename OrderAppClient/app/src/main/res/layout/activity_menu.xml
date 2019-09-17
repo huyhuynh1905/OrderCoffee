@@ -87,7 +87,7 @@
         android:layout_marginRight="11dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/select_orderbutton"
-        android:text="50.000vnđ\nOrder Ngay!"
+        android:text="0vnđ\nOrder Ngay!"
         android:textAllCaps="false"
         android:textColor="#fff"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"

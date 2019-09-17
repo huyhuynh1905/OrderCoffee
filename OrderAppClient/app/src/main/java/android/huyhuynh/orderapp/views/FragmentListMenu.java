@@ -8,6 +8,7 @@ import android.huyhuynh.orderapp.model.MenuAdapter;
 import android.huyhuynh.orderapp.retrofit2.APIUltils;
 import android.huyhuynh.orderapp.retrofit2.DataClient;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,7 @@ import retrofit2.Response;
  */
 public class FragmentListMenu extends ListFragment {
 
-    List<Menu> arrMenu;
+    static List<Menu> arrMenu;
     MenuAdapter mMenuAdapter;
 
     @Override
@@ -46,6 +47,7 @@ public class FragmentListMenu extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         FragmentOrderDialog fragmentOrderDialog = new FragmentOrderDialog();
+        fragmentOrderDialog.setPositionfromlist(position);
         fragmentOrderDialog.show(getFragmentManager(),"fragmentDialog");
         super.onListItemClick(l, v, position, id);
     }
@@ -56,7 +58,7 @@ public class FragmentListMenu extends ListFragment {
         callBack.enqueue(new Callback<List<Menu>>() {
             @Override
             public void onResponse(Call<List<Menu>> call, Response<List<Menu>> response) {
-                List<Menu> menus = new ArrayList<>();
+                List<Menu> menus;
                 menus = response.body();
                 arrMenu.clear();
                 for (Menu mn : menus){
@@ -69,7 +71,7 @@ public class FragmentListMenu extends ListFragment {
 
             @Override
             public void onFailure(Call<List<Menu>> call, Throwable t) {
-
+                Log.d("AAA",t.toString());
             }
         });
     }

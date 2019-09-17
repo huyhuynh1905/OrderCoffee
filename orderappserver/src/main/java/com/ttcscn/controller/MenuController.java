@@ -22,7 +22,13 @@ public class MenuController {
 	
 	@RequestMapping(value = "/menu/get", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Menu> getAllListMenu(@RequestParam("maBan") String maBan) {
+	public List<Menu> getAllListMenuPost(@RequestParam("maBan") String maBan) {
+		List<Menu> arrMenu = menuService.getAllList();
+		return arrMenu;
+	}
+	@RequestMapping(value = "/menu/get", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Menu> getAllListMenuGet() {
 		List<Menu> arrMenu = menuService.getAllList();
 		return arrMenu;
 	}
@@ -80,5 +86,15 @@ public class MenuController {
 	public Menu findById(@RequestParam("maThucUong") String maThucUong) {
 		Menu menu = menuService.findItemById(maThucUong);
 		return menu;
+	}
+	
+	//Test
+	@RequestMapping(value = "/menu/test", method = RequestMethod.POST)
+	@ResponseBody
+	public MenuDto testList(@RequestBody List<Menu> menus) {
+		MenuDto menuDto = new MenuDto();
+		menuDto.setMessage(menus.get(0).getTenThucUong());
+		menuDto.setStatus(menus.get(0).getHinhAnh());
+		return menuDto;
 	}
 }

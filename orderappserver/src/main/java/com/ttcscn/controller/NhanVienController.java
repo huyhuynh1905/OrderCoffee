@@ -20,9 +20,14 @@ public class NhanVienController {
 	@Autowired
 	NhanVienService nhanvienService;
 	
-	@RequestMapping(value = "/nhanvien/get", method = RequestMethod.POST)
+	@RequestMapping(value = "/nhanvien/get", method = RequestMethod.GET)
 	@ResponseBody
 	public List<NhanVien> getAllNhanVien(){
+		return nhanvienService.getAllList();
+	}
+	@RequestMapping(value = "/nhanvien/get", method = RequestMethod.POST)
+	@ResponseBody
+	public List<NhanVien> getAllNhanVienPost(){
 		return nhanvienService.getAllList();
 	}
 	

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="175dp">
+    android:layout_height="195dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,9 +29,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="150dp"
             android:orientation="horizontal"
-            android:padding="20dp"
+            android:paddingTop="5dp"
             >
 
             <ImageView
@@ -39,23 +39,24 @@
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="45dp"
                 android:src="@drawable/water"
                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="125dp"
                 android:layout_margin="10dp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="80dp">
                     <TextView
                         android:id="@+id/txtSoluongDialog"
                         android:layout_width="wrap_content"
-                        android:textSize="18sp"
+                        android:textSize="24sp"
+                        android:layout_marginTop="25dp"
                         android:fontFamily="@font/sfudinengalt"
                         android:textColor="#685454"
                         android:layout_height="wrap_content"
@@ -63,47 +64,51 @@
 
                     <EditText
                         android:id="@+id/edtSoluong"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:background="#FFF"
-                        android:hint="0"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:layout_marginLeft="10dp"
+                        android:background="#FFF"
+                        android:enabled="false"
+                        android:textSize="24sp"
+                        android:layout_marginTop="25dp"
                         android:gravity="center"
+                        android:hint="1"
                         android:inputType="number" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="39dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="20dp"
                         android:orientation="vertical">
 
                         <ImageButton
                             android:id="@+id/imgBtnUp"
 
+                            android:layout_width="39dp"
+                            android:layout_height="33dp"
                             android:layout_marginTop="3dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
                             android:background="@color/zxing_transparent"
-                            app:srcCompat="@drawable/btntang" />
+                            app:srcCompat="@drawable/upbtn" />
 
                         <ImageButton
                             android:id="@+id/imgBtnDown"
-                            android:layout_marginTop="5dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_width="39dp"
+                            android:layout_height="33dp"
+                            android:layout_marginTop="10dp"
                             android:background="@color/zxing_transparent"
-                            app:srcCompat="@drawable/btngiam" />
+                            app:srcCompat="@drawable/downbtn" />
                     </LinearLayout>
 
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/txtTongGiaDialog"
+                    android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#685454"
                     android:fontFamily="@font/sfudinengalt"
-                    android:textSize="18sp"
+                    android:textSize="24sp"
                     android:text="Giá: 5000vnđ" />
             </LinearLayout>
         </LinearLayout>

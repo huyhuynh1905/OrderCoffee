@@ -3,7 +3,7 @@ package com.ttcscn.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity(name = "order")
+@Entity(name = "ordertable")
 public class Order {
 	
 	@Id
@@ -19,10 +19,12 @@ public class Order {
 	
 	private String ghiChu;
 	
+	private boolean tinhTrang;
+	
 	public Order() {
 		super();
 	}
-	public Order(String maOrder, String maBan, String maThucUong, int soLuong, double donGiaOrder, String ghiChu) {
+	public Order(String maOrder, String maBan, String maThucUong, int soLuong, double donGiaOrder, String ghiChu, boolean tinhTrang) {
 		super();
 		this.maOrder = maOrder;
 		this.maBan = maBan;
@@ -30,6 +32,7 @@ public class Order {
 		this.soLuong = soLuong;
 		this.donGiaOrder = donGiaOrder;
 		this.ghiChu = ghiChu;
+		this.tinhTrang = tinhTrang;
 	}
 	
 	public String getMaOrder() {
@@ -67,6 +70,14 @@ public class Order {
 	}
 	public void setGhiChu(String ghiChu) {
 		this.ghiChu = ghiChu;
+	}
+	
+	
+	public boolean isTinhTrang() {
+		return tinhTrang;
+	}
+	public void setTinhTrang(boolean tinhTrang) {
+		this.tinhTrang = tinhTrang;
 	}
 	@Override
 	public String toString() {

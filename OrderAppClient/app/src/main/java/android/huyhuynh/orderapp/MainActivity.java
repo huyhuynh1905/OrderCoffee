@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView btnImgQuetma;
     IntentIntegrator intentIntegrator;
     public static List<Menu> arrMenu;
+    public static String maBan = "MB05";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

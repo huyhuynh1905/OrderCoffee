@@ -2,7 +2,6 @@ package android.huyhuynh.orderapp.model;
 
 import android.content.Context;
 import android.huyhuynh.orderapp.R;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import androidx.fragment.app.FragmentActivity;
 
 import com.squareup.picasso.Picasso;
 
