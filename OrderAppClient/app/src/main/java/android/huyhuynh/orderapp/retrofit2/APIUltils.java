@@ -1,5 +1,7 @@
 package android.huyhuynh.orderapp.retrofit2;
 
+import android.huyhuynh.orderapp.R;
+
 /**
  * Created by Huy Huynh on 16-09-2019.
  */

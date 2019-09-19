@@ -1,5 +1,6 @@
 package android.huyhuynh.orderapp.retrofit2;
 
+import android.huyhuynh.orderapp.model.Ban;
 import android.huyhuynh.orderapp.model.Menu;
 
 import java.util.List;
@@ -17,6 +18,10 @@ public interface DataClient {
     @FormUrlEncoded
     @POST("menu/get")
     Call<List<Menu>> getListMenu(@Field("maBan") String maBan);
+
+    @FormUrlEncoded
+    @POST("ban/find")
+    Call<Ban> loginWithQR(@Field("maBan") String maBan);
 
 }
 

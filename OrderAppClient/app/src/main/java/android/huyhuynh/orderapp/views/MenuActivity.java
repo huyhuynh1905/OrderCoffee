@@ -1,5 +1,6 @@
 package android.huyhuynh.orderapp.views;
 
+import android.huyhuynh.orderapp.MainActivity;
 import android.huyhuynh.orderapp.R;
 import android.huyhuynh.orderapp.model.DataModel;
 import android.huyhuynh.orderapp.model.Menu;
@@ -23,7 +24,8 @@ import java.util.List;
 
 public class MenuActivity extends AppCompatActivity implements DataOrderDialog, DataModel {
 
-    TextView txtBan, txtHuongdan;
+    public static TextView txtBan;
+    TextView txtHuongdan;
     Button btnOrder;
     public static List<Order> arrOrder;
     public static List<Menu> arrMenuOrder;
@@ -65,6 +67,7 @@ public class MenuActivity extends AppCompatActivity implements DataOrderDialog, 
 
     private void init() {
         txtBan = findViewById(R.id.txtBan);
+        txtBan.setText(MainActivity.tenBan); //gán tên bàn quét được
         txtHuongdan = findViewById(R.id.txtHuongdan);
         btnOrder = findViewById(R.id.btnOrder);
         arrOrder = new ArrayList<>();
@@ -82,6 +85,7 @@ public class MenuActivity extends AppCompatActivity implements DataOrderDialog, 
     public void addToListOrder(Order order, Menu menu) {
         int i;
         boolean check = false;
+        //Kiểm tra trong list order đã có chưa
         for (i = 0; i < arrOrder.size(); i++){
             if (arrOrder.get(i).getMaThucUong().equals(order.getMaThucUong())){
                 check=true;

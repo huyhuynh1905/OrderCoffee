@@ -77,4 +77,10 @@ public class BanController {
 	public Ban findBan(@RequestParam("maBan") String maBan) {
 		return banService.findBanById(maBan);
 	}
+	
+	@RequestMapping(value = "/ban/find", method = RequestMethod.POST)
+	@ResponseBody
+	public Ban findBanByPost(@RequestParam("maBan") String maBan) {
+		return banService.findBanById(maBan);
+	}
 }

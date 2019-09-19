@@ -2,6 +2,7 @@ package android.huyhuynh.orderapp.views;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.huyhuynh.orderapp.MainActivity;
 import android.huyhuynh.orderapp.R;
 import android.huyhuynh.orderapp.model.Menu;
 import android.huyhuynh.orderapp.model.MenuAdapter;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import androidx.annotation.UiThread;
 import androidx.fragment.app.ListFragment;
 
 import java.util.ArrayList;
@@ -28,14 +30,14 @@ import retrofit2.Response;
  */
 public class FragmentListMenu extends ListFragment {
 
-    static List<Menu> arrMenu;
+    public static List<Menu> arrMenu;
     MenuAdapter mMenuAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         arrMenu = new ArrayList<>();
 
-        loadMenuList("MB01");
+        loadMenuList(MainActivity.maBan);
         mMenuAdapter = new MenuAdapter(getActivity(),R.layout.item_menu,arrMenu);
         setListAdapter(mMenuAdapter);
         return inflater.inflate(R.layout.list_menu_fragment,container,false);
@@ -61,9 +63,10 @@ public class FragmentListMenu extends ListFragment {
                 List<Menu> menus;
                 menus = response.body();
                 arrMenu.clear();
-                for (Menu mn : menus){
-                    Menu menu = new Menu(mn.getMaThucUong(),mn.getTenThucUong(),mn.getDonGia(),
-                            mn.getHinhAnh(),mn.getGhiChu());
+                Log.d("AAA","1- "+ menus.get(2).getTenThucUong());
+                for (int i = 0; i <  menus.size(); i++){
+                    Menu menu = new Menu(menus.get(i).getMaThucUong(),menus.get(i).getTenThucUong(),menus.get(i).getDonGia(),
+                            menus.get(i).getHinhAnh(),menus.get(i).getGhiChu());
                     arrMenu.add(menu);
                 }
                 mMenuAdapter.notifyDataSetChanged();
