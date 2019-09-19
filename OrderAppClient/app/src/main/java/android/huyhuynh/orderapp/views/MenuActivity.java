@@ -1,10 +1,12 @@
 package android.huyhuynh.orderapp.views;
 
-import android.huyhuynh.orderapp.MainActivity;
+import android.content.Intent;
 import android.huyhuynh.orderapp.R;
 import android.huyhuynh.orderapp.model.DataModel;
 import android.huyhuynh.orderapp.model.Menu;
 import android.huyhuynh.orderapp.model.Order;
+import android.huyhuynh.orderapp.retrofit2.APIUltils;
+import android.huyhuynh.orderapp.retrofit2.DataClient;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -13,23 +15,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class MenuActivity extends AppCompatActivity implements DataOrderDialog, DataModel {
 
-    public static TextView txtBan;
+    public TextView txtBan;
     TextView txtHuongdan;
     Button btnOrder;
     public static List<Order> arrOrder;
     public static List<Menu> arrMenuOrder;
     public double tonggia = 0;
+    public static String maBan = "";
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -67,7 +77,10 @@ public class MenuActivity extends AppCompatActivity implements DataOrderDialog, 
 
     private void init() {
         txtBan = findViewById(R.id.txtBan);
-        txtBan.setText(MainActivity.tenBan); //gán tên bàn quét được
+        Intent intent = getIntent();
+        String tenBanStr = intent.getStringExtra("tenBan");
+        maBan = intent.getStringExtra("maBan");
+        txtBan.setText(tenBanStr); //gán tên bàn quét được
         txtHuongdan = findViewById(R.id.txtHuongdan);
         btnOrder = findViewById(R.id.btnOrder);
         arrOrder = new ArrayList<>();
@@ -108,5 +121,46 @@ public class MenuActivity extends AppCompatActivity implements DataOrderDialog, 
         tonggia = tonggia-sotien;
         DecimalFormat format = new DecimalFormat("###,###");
         btnOrder.setText(format.format(tonggia)+"vnđ\nOrder Ngay!");
+    }
+
+    public void sendOrder(View view) {
+        //Sự kiện button order
+        if (tonggia==0){
+            Toast.makeText(MenuActivity.this,"Mời bạn chọn thức uống!",Toast.LENGTH_SHORT).show();
+        } else {
+            if (btnOrder.getText().toString().equals("Order khác!")) {
+                btnOrder.setText(0 + "vnđ\nOrder Ngay!");
+                tonggia = 0;
+                arrOrder.clear();
+                arrMenuOrder.clear();
+            } else {
+                int current = (int) System.currentTimeMillis();
+                for (Order order : arrOrder) {
+                    order.setMaOrder(String.valueOf(current));
+                }
+                sendOrderToServer();
+                btnOrder.setText("Order khác!");
+            }
+        }
+    }
+
+
+    //Retrofit send order
+    public void sendOrderToServer(){
+        DataClient dataClient = APIUltils.getDataClient();
+        Call<String> callback = dataClient.sendOrder(arrOrder);
+        callback.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                String message = response.body();
+                Log.d("AAA","1- "+response.body());
+                Toast.makeText(MenuActivity.this,message,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Log.d("AAA","MenuActivity162 - "+t.toString());
+            }
+        });
     }
 }

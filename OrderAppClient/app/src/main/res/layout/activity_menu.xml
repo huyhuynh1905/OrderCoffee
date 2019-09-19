@@ -90,6 +90,7 @@
         android:text="0vnđ\nOrder Ngay!"
         android:textAllCaps="false"
         android:textColor="#fff"
+        android:onClick="sendOrder"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

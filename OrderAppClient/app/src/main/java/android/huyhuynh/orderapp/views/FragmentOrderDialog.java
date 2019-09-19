@@ -54,10 +54,9 @@ public class FragmentOrderDialog extends AppCompatDialogFragment {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getActivity(),edtSoluong.getText().toString(),Toast.LENGTH_SHORT).show();
                 tonggia = FragmentListMenu.arrMenu.get(getPositionfromlist()).getDonGia()*soluong;
                 Menu menu = FragmentListMenu.arrMenu.get(getPositionfromlist());
-                Order order = new Order(MainActivity.maBan,menu.getMaThucUong(),soluong,tonggia,"",true);
+                Order order = new Order(MenuActivity.maBan,menu.getMaThucUong(),soluong,tonggia,"",true);
                 mDataOrderDialog.addToListOrder(order,menu);
                 mDataOrderDialog.getGia(tonggia);
             }

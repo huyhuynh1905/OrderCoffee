@@ -81,4 +81,18 @@ public class OrderController {
 		Order order = orderService.findOrder(maOrder);
 		return order;
 	}
+	
+	//Thêm
+	@RequestMapping(value = "/order/addlist", method = RequestMethod.POST)
+	@ResponseBody
+	public String addListOrder(@RequestBody List<Order> arrOrder) {
+		OrderDto orderDto = new OrderDto();
+		for(Order order : arrOrder) {
+			orderService.saveOrder(order);
+		}
+		orderDto.setStatus("OK");
+		orderDto.setMessage("Đã order thành công! Vui lòng đợi!");
+		return "Đã order thành công! Vui lòng đợi!";
+	}
+	
 }

@@ -14,8 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import androidx.annotation.UiThread;
 import androidx.fragment.app.ListFragment;
 
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class FragmentListMenu extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         arrMenu = new ArrayList<>();
 
-        loadMenuList(MainActivity.maBan);
+        loadMenuList(MenuActivity.maBan);
         mMenuAdapter = new MenuAdapter(getActivity(),R.layout.item_menu,arrMenu);
         setListAdapter(mMenuAdapter);
         return inflater.inflate(R.layout.list_menu_fragment,container,false);
@@ -63,13 +63,16 @@ public class FragmentListMenu extends ListFragment {
                 List<Menu> menus;
                 menus = response.body();
                 arrMenu.clear();
-                Log.d("AAA","1- "+ menus.get(2).getTenThucUong());
-                for (int i = 0; i <  menus.size(); i++){
-                    Menu menu = new Menu(menus.get(i).getMaThucUong(),menus.get(i).getTenThucUong(),menus.get(i).getDonGia(),
-                            menus.get(i).getHinhAnh(),menus.get(i).getGhiChu());
-                    arrMenu.add(menu);
+                if (menus!=null){
+                    for (Menu mn : menus){
+                        Menu menu = new Menu(mn.getMaThucUong(),mn.getTenThucUong(),mn.getDonGia(),
+                                mn.getHinhAnh(),mn.getGhiChu());
+                        arrMenu.add(menu);
+                    }
+                    mMenuAdapter.notifyDataSetChanged();
+                } else {
+                    Toast.makeText(getActivity(),"Lỗi kết nối máy chủ!",Toast.LENGTH_SHORT).show();
                 }
-                mMenuAdapter.notifyDataSetChanged();
             }
 
             @Override

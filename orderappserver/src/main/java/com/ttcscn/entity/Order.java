@@ -3,7 +3,7 @@ package com.ttcscn.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity(name = "taborder")
+@Entity(name = "ordertab")
 public class Order {
 	
 	@Id

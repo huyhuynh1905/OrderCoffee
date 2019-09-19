@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
     ImageView btnImgQuetma;
     IntentIntegrator intentIntegrator;
     public static List<Menu> arrMenu;
-    public static String tenBan = "";
-    public static String maBan = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         intentIntegrator.setOrientationLocked(false);
         intentIntegrator.setBeepEnabled(false); //Tiếng kêu sau khi quét xong
         intentIntegrator.setBarcodeImageEnabled(true);
-        intentIntegrator.setTimeout(3000); //Thời gian cho đến khi kết thúc
+        intentIntegrator.setTimeout(10000); //Thời gian cho đến khi kết thúc
         //intentIntegrator.initiateScan();
     }
 
@@ -75,8 +73,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 try {
                     JSONObject jsonObject = new JSONObject(intentResult.getContents());
-                    String checkStr = jsonObject.getString("maBan"); //MB05
-                    //int current = (int) System.currentTimeMillis();
+                    String checkStr = jsonObject.getString("maBan");
                     Toast.makeText(this,checkStr,Toast.LENGTH_LONG);
                     loginWithApp(checkStr);
 
@@ -102,9 +99,9 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<Ban> call, Response<Ban> response) {
                 Ban ban = response.body();
                 if (ban!=null){
-                    tenBan = ban.getTenBan();
-                    maBan = ban.getMaBan();
                     Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                    intent.putExtra("tenBan",ban.getTenBan());
+                    intent.putExtra("maBan",ban.getMaBan());
                     startActivity(intent);
                 } else {
                     Toast.makeText(MainActivity.this, "Không tìm thấy mã bàn này!", Toast.LENGTH_LONG).show();
@@ -113,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<Ban> call, Throwable t) {
-                Toast.makeText(MainActivity.this,"Lỗi tìm kiếm!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"Không tìm thấy mã bàn này!", Toast.LENGTH_SHORT).show();
                 Log.d("AAA","Lỗi - "+ t.getMessage());
             }
         });
