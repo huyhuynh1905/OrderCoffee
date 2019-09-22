@@ -1,0 +1,149 @@
+[33mcommit b94b86c432cb2bbb1cb5292edcef11d92485190a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Sat Sep 21 20:28:35 2019 +0700
+
+    OrderAppServer: Create
+
+[33mcommit 9742eb1667672e79684af845dd00239d5d4fa5c5[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Fri Sep 20 00:15:20 2019 +0700
+
+    OrderappClient: hoan thanh cac chuc nang cua app
+
+[33mcommit cdd2f170644f10aa3ab57d75f6c63043d6f34702[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Thu Sep 19 22:47:15 2019 +0700
+
+    OrderappClient: Login with maBan
+
+[33mcommit 1b0ddbe0e0961a93705e2baac9512ce78251759a[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Wed Sep 18 01:05:54 2019 +0700
+
+    OrderAppclient: Hoan thanh ung dung voi cac chuc nang co ban
+
+[33mcommit 286373adceb3a2ad18cee4157cf582d5d3d54497[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Tue Sep 17 01:06:39 2019 +0700
+
+    OrderAppclient: Get List Menu from Server and Custom Dialog
+
+[33mcommit bded9e78c7fef2266af80eb15583652f0436ce12[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Sun Sep 15 21:07:40 2019 +0700
+
+    Order app service controller completed
+
+[33mcommit 263a2ac569fa2568c2b6ab66393695ccee87ff8d[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Thu Sep 12 14:52:21 2019 +0700
+
+    MenuController and BanController completed
+
+[33mcommit 9bbcf4862689915212ffbff4a070b275a10f80d9[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Wed Sep 11 14:13:49 2019 +0700
+
+    Add Service hibernate class
+
+[33mcommit 54bb338f788c29bd75f0fe832883992924dec2d6[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Tue Sep 10 23:44:36 2019 +0700
+
+    Dao trong hibernate
+
+[33mcommit 489211d801ac82c861c6c65c3220b055833c29ba[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Mon Sep 9 23:26:33 2019 +0700
+
+    Hibernate connect to Database
+
+[33mcommit bc102cf461c25f5c3e38d7607ecef90320e000b6[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Fri Sep 6 21:12:30 2019 +0700
+
+    server receive image from android retrofit
+
+[33mcommit ceb9aca579657e03a1c2920a9fdf4835d5436bc9[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Thu Sep 5 21:57:05 2019 +0700
+
+    create server orderapp coffee
+
+[33mcommit bad9928bd1b502a2a45915ccb5700362ccc3223d[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Wed Aug 21 00:07:16 2019 +0700
+
+    Design main activity 2
+
+[33mcommit 4dc85a77d605d9da481c49a8b63f631ec028eae1[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Tue Aug 20 23:54:27 2019 +0700
+
+    Design main activity
+
+[33mcommit 23f1864d14c11b4c4a053bd6e6b3d873c993db41[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Mon Aug 19 23:28:01 2019 +0700
+
+    custom progress bar
+
+[33mcommit 9e6167889cf1a1e946c37cb490d7c8da631fbc07[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Sun Aug 18 23:07:36 2019 +0700
+
+    Create Frament Menu and Fragment Order edit
+
+[33mcommit ee0ba0f1498439c041b363cc5a29cfe9647952c4[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Sun Aug 18 22:34:02 2019 +0700
+
+    Create Frament Menu and Fragment Order
+
+[33mcommit 4faffca430871dad0e4682d0ef2b53c5c66b8a86[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Sun Aug 18 22:03:24 2019 +0700
+
+    Design Menu Activity Button Order
+
+[33mcommit 264203c86177ece9590752a74d6366b6c36f4036[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Sun Aug 18 21:30:56 2019 +0700
+
+    Design Menu Activity
+
+[33mcommit 5c9ccc2883f7f107969bc093c23865d6b1543de8[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Sat Aug 17 23:47:28 2019 +0700
+
+    Load QR to intent
+
+[33mcommit 050e5128770a51f214eed755a60d75eda7f0ac6c[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Sat Aug 17 23:14:57 2019 +0700
+
+    Create QR code
+
+[33mcommit 167a11752d0c07e3a11122dc65c0cd6f848ae4ac[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Fri Aug 16 23:59:28 2019 +0700
+
+    Design Load Page Welcome
+
+[33mcommit a891dc6527bb22a1f38b583ec4f57eee3d8af15a[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Wed Aug 14 21:33:58 2019 +0700
+
+    Create README.md
+
+[33mcommit 113dbcec979a566120a8762221abd4b4f1742b78[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Wed Aug 14 21:26:21 2019 +0700
+
+    Create .gitignore
+
+[33mcommit 86ecb29fbf1b160f24814330b52f05a3f905d017[m
+Author: Huy Huỳnh <34849208+huyhuynh1905@users.noreply.github.com>
+Date:   Wed Aug 14 21:24:23 2019 +0700
+
+    first commit
