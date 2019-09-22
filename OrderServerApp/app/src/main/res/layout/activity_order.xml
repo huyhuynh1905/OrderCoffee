@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E3B1B1"
+    tools:context=".OrderActivity">
+
+    <ListView
+        android:id="@+id/listViewOrder"
+        android:layout_width="480dp"
+        android:layout_height="700dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="#FFF"
+        android:listSelector="#D494DF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutShow"
+        android:layout_width="711dp"
+        android:layout_height="520dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="#000000"
+        app:layout_constraintStart_toEndOf="@+id/listViewOrder"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ListView
+            android:id="@+id/lvItemMenuOrder"
+            android:layout_width="610dp"
+            android:layout_height="390dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:background="#fff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTenbanOrder" />
+
+        <TextView
+            android:id="@+id/txtTonggiaOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginRight="56dp"
+            android:text="Tổng Giá: 150.000vnđ"
+            android:textColor="#fff"
+            android:textSize="50px"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lvItemMenuOrder" />
+
+        <TextView
+            android:id="@+id/txtTenbanOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="35dp"
+            android:text="Tên Bàn: Bàn số 5"
+            android:textColor="#fff"
+            android:textSize="50px"
+            app:layout_constraintBottom_toTopOf="@+id/lvItemMenuOrder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btnXacnhanOrder"
+        android:layout_width="145dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="75dp"
+        android:text="Xác Nhận"
+        android:textSize="50px"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:background="@drawable/select_button_ok"
+        app:layout_constraintStart_toEndOf="@+id/listViewOrder"
+        app:layout_constraintTop_toBottomOf="@+id/layoutShow" />
+
+    <Button
+        android:id="@+id/btnHuy"
+        android:layout_width="145dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="75dp"
+        android:text="Huỷ"
+        android:textSize="50px"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:background="@drawable/select_button_huy"
+        app:layout_constraintStart_toEndOf="@+id/btnXacnhanOrder"
+        app:layout_constraintTop_toBottomOf="@+id/layoutShow" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="145dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="80dp"
+        android:text="Đăng xuất"
+        android:textSize="50px"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:background="@drawable/select_button_logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutShow" />
+</androidx.constraintlayout.widget.ConstraintLayout>
