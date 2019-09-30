@@ -21,6 +21,20 @@ public class OrderDAO implements Dao<Order> {
 		List<Order> arrOrder = session.createQuery("from ordertab").getResultList();
 		return arrOrder;
 	}
+	
+	//
+	public List<Order> chuaOder() {
+		Session session = sessionHibernate.getCurrentSession();
+		List<Order> arrOrder = session.createQuery("from ordertab where tinhTrang = 1").list();
+		return arrOrder;
+	}
+	public List<Order> getListWithId(String maOrder, String maBan) {
+		Session session = sessionHibernate.getCurrentSession();
+		String sql = "from ordertab where maOrder = '"+maOrder+"' and maBan = '"+maBan+"'";
+		System.out.println(sql);
+		List<Order> arrOrder = session.createQuery(sql).getResultList();
+		return arrOrder;
+	}
 
 	public String save(Order t) {
 		Session session = sessionHibernate.getCurrentSession();

@@ -1,16 +1,18 @@
 package com.ttcscn.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity(name = "ordertab")
-public class Order {
+public class Order implements Serializable {
 	
 	@Id
 	private String maOrder;
-
+	@Id
 	private String maBan;
-
+	@Id
 	private String maThucUong;
 	
 	private int soLuong;

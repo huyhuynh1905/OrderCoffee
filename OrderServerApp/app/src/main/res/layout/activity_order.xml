@@ -7,19 +7,68 @@
     android:background="#E3B1B1"
     tools:context=".OrderActivity">
 
-    <ListView
-        android:id="@+id/listViewOrder"
+    <LinearLayout
+        android:id="@+id/layoutOrderLv"
         android:layout_width="480dp"
         android:layout_height="700dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="50dp"
         android:background="#FFF"
         android:listSelector="#D494DF"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:background="#FA958D"
+                android:gravity="center"
+                android:text="Mã Order"
+                android:textSize="22sp"/>
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical" />
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:background="#85D388"
+                android:gravity="center"
+                android:text="Bàn số"
+                android:textSize="22sp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical" />
+
+            <TextView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:background="#C4B4B4"
+                android:gravity="center"
+                android:text="Tổng Giá"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+        <ListView
+            android:id="@+id/listViewOrder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:listSelector="#E6DB7C">
+         </ListView>
+        </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutShow"
@@ -32,7 +81,7 @@
         android:layout_marginRight="26dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="#000000"
-        app:layout_constraintStart_toEndOf="@+id/listViewOrder"
+        app:layout_constraintStart_toEndOf="@+id/layoutOrderLv"
         app:layout_constraintTop_toTopOf="parent">
 
         <ListView
@@ -90,7 +139,7 @@
         android:textAllCaps="false"
         android:textColor="#fff"
         android:background="@drawable/select_button_ok"
-        app:layout_constraintStart_toEndOf="@+id/listViewOrder"
+        app:layout_constraintStart_toEndOf="@+id/layoutOrderLv"
         app:layout_constraintTop_toBottomOf="@+id/layoutShow" />
 
     <Button

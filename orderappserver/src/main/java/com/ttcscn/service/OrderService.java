@@ -37,4 +37,12 @@ public class OrderService {
 	public void hoanThanhOrder(Order order) {
 		orderDao.changeOrder(order);
 	}
+	//
+	public List<Order> chuaOrder(){
+		return orderDao.chuaOder();
+	}
+	public List<Order> getListWithId(String maOrder, String maBan){
+		return orderDao.getListWithId(maOrder,maBan);
+	}
+	
 }
