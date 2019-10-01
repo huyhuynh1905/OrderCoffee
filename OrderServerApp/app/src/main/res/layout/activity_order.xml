@@ -8,7 +8,7 @@
     tools:context=".OrderActivity">
 
     <LinearLayout
-        android:id="@+id/layoutOrderLv"
+        android:id="@+id/layoutnv"
         android:layout_width="480dp"
         android:layout_height="700dp"
         android:layout_marginStart="44dp"
@@ -51,7 +51,7 @@
 
         </LinearLayout>
         <ListView
-            android:id="@+id/listViewOrder"
+            android:id="@+id/lvNhanvien"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#fff"
@@ -71,7 +71,7 @@
         android:layout_marginRight="26dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="#000000"
-        app:layout_constraintStart_toEndOf="@+id/layoutOrderLv"
+        app:layout_constraintStart_toEndOf="@+id/layoutnv"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
@@ -156,7 +156,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/btnXacnhanOrder"
+        android:id="@+id/btnThemNv"
         android:layout_width="145dp"
         android:layout_height="60dp"
         android:layout_marginStart="40dp"
@@ -168,11 +168,11 @@
         android:onClick="xacNhanOrder"
         android:textColor="#fff"
         android:background="@drawable/select_button_ok"
-        app:layout_constraintStart_toEndOf="@+id/layoutOrderLv"
+        app:layout_constraintStart_toEndOf="@+id/layoutnv"
         app:layout_constraintTop_toBottomOf="@+id/layoutShow" />
 
     <Button
-        android:id="@+id/btnHuy"
+        android:id="@+id/btnXoaNv"
         android:layout_width="145dp"
         android:layout_height="60dp"
         android:layout_marginStart="70dp"
@@ -184,11 +184,11 @@
         android:textAllCaps="false"
         android:textColor="#fff"
         android:background="@drawable/select_button_huy"
-        app:layout_constraintStart_toEndOf="@+id/btnXacnhanOrder"
+        app:layout_constraintStart_toEndOf="@+id/btnThemNv"
         app:layout_constraintTop_toBottomOf="@+id/layoutShow" />
 
     <Button
-        android:id="@+id/btnLogout"
+        android:id="@+id/btnLogoutNv"
         android:layout_width="145dp"
         android:layout_height="60dp"
         android:layout_marginTop="75dp"

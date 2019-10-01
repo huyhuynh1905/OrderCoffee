@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,7 +69,7 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     private void init() {
-        lvOrder = findViewById(R.id.listViewOrder);
+        lvOrder = findViewById(R.id.lvNhanvien);
         lvItemMenuOrder = findViewById(R.id.lvItemMenuOrder);
         txtTenBanOrder = findViewById(R.id.txtTenbanOrder);
         txtTongGiaOrder = findViewById(R.id.txtTonggiaOrder);
