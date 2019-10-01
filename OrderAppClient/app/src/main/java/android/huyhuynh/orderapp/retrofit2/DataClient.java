@@ -2,6 +2,7 @@ package android.huyhuynh.orderapp.retrofit2;
 
 import android.huyhuynh.orderapp.model.Ban;
 import android.huyhuynh.orderapp.model.Menu;
+import android.huyhuynh.orderapp.model.Message;
 import android.huyhuynh.orderapp.model.Order;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public interface DataClient {
     Call<Ban> loginWithQR(@Field("maBan") String maBan);
 
     @POST("order/addlist")
-    Call<String> sendOrder(@Body List<Order> maBan);
+    Call<Message> sendOrder(@Body List<Order> maBan);
 
 }
 

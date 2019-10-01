@@ -42,8 +42,9 @@
             android:id="@+id/txtItemTongGia"
             android:layout_height="50dp"
             android:layout_width="160dp"
-            android:gravity="center"
+            android:gravity="right|center"
             android:text="150.000vnđ"
+            android:paddingRight="8dp"
             android:textSize="22sp" />
     </LinearLayout>
 </LinearLayout>

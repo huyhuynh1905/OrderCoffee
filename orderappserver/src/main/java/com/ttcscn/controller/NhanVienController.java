@@ -82,18 +82,15 @@ public class NhanVienController {
 		return nhanvienService.findNhanVienById(username);
 	}
 	
-	@RequestMapping(value = "/nhanvien/login",method = RequestMethod.GET)
+	@RequestMapping(value = "/nhanvien/login",method = RequestMethod.POST)
 	@ResponseBody
-	public NhanVienDto loginServer(@RequestParam("username") String username,@RequestParam("password") String password) {
-		NhanVienDto nvdto = new NhanVienDto();
+	public NhanVien loginServer(@RequestParam("username") String username,@RequestParam("password") String password) {
+		
 		boolean login = nhanvienService.loginToServer(username, password);
 		if(login) {
-			nvdto.setStatus("Login Access");
-			nvdto.setMessage("Đăng nhập thành công!");
+			return nhanvienService.findNhanVienById(username);
 		} else {
-			nvdto.setStatus("Login Failed");
-			nvdto.setMessage("Sai tên đăng nhập hoặc mật khẩu!");
+			return new NhanVien();
 		}
-		return nvdto;
 	}
 }

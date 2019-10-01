@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ttcscn.dto.OrderDto;
+import com.ttcscn.entity.Message;
 import com.ttcscn.entity.Order;
 import com.ttcscn.service.OrderService;
 
@@ -42,7 +43,7 @@ public class OrderController {
 		}
 		return orderDto;
 	}
-	
+	/*
 	@RequestMapping(value = "/order/update", method = RequestMethod.POST)
 	@ResponseBody
 	public OrderDto updateMenu(@RequestBody Order order) {
@@ -57,7 +58,7 @@ public class OrderController {
 			orderDto.setMessage(mess);
 		}
 		return orderDto;
-	}
+	}*/
 	
 	@RequestMapping(value = "/order/delete", method = RequestMethod.POST)
 	@ResponseBody
@@ -68,7 +69,7 @@ public class OrderController {
 			orderDto.setStatus("Failse");
 			orderDto.setMessage("Khong tim thay thuc uong nay");
 		} else {
-			String mess = orderService.deleteOrder(order);
+			String mess = orderService.deleteOrder(order.getMaOrder(), order.getMaBan());
 			orderDto.setStatus("Success");
 			orderDto.setMessage(mess);
 		}
@@ -85,14 +86,14 @@ public class OrderController {
 	//Thêm
 	@RequestMapping(value = "/order/addlist", method = RequestMethod.POST)
 	@ResponseBody
-	public String addListOrder(@RequestBody List<Order> arrOrder) {
+	public Message addListOrder(@RequestBody List<Order> arrOrder) {
 		OrderDto orderDto = new OrderDto();
 		for(Order order : arrOrder) {
 			orderService.saveOrder(order);
 		}
-		orderDto.setStatus("OK");
-		orderDto.setMessage("Đã order thành công! Vui lòng đợi!");
-		return "Đã order thành công! Vui lòng đợi!";
+		Message message = new Message();
+		message.setMessage("Đã order thành công! Vui lòng đợi!");
+		return message;
 	}
 	
 }

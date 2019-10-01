@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.huyhuynh.orderapp.R;
 import android.huyhuynh.orderapp.model.DataModel;
 import android.huyhuynh.orderapp.model.Menu;
+import android.huyhuynh.orderapp.model.Message;
 import android.huyhuynh.orderapp.model.Order;
 import android.huyhuynh.orderapp.retrofit2.APIUltils;
 import android.huyhuynh.orderapp.retrofit2.DataClient;
@@ -148,17 +149,17 @@ public class MenuActivity extends AppCompatActivity implements DataOrderDialog, 
     //Retrofit send order
     public void sendOrderToServer(){
         DataClient dataClient = APIUltils.getDataClient();
-        Call<String> callback = dataClient.sendOrder(arrOrder);
-        callback.enqueue(new Callback<String>() {
+        Call<Message> callback = dataClient.sendOrder(arrOrder);
+        callback.enqueue(new Callback<Message>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                String message = response.body();
+            public void onResponse(Call<Message> call, Response<Message> response) {
+                Message message = response.body();
                 Log.d("AAA","1- "+response.body());
-                Toast.makeText(MenuActivity.this,message,Toast.LENGTH_SHORT).show();
+                Toast.makeText(MenuActivity.this,message.getMessage(),Toast.LENGTH_LONG).show();
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<Message> call, Throwable t) {
                 Log.d("AAA","MenuActivity162 - "+t.toString());
             }
         });

@@ -22,7 +22,13 @@ public class NhanVien {
 	private boolean chucVu;
 	
 	public NhanVien() {
-		super();
+		this.username = "";
+		this.password = "";
+		this.hoTen = "";
+		this.namSinh = 0;
+		this.soDienThoai = "";
+		this.diaChi = "";
+		this.chucVu = false;
 	}
 
 	public NhanVien(String username, String password, String hoTen, int namSinh, String soDienThoai, String diaChi,

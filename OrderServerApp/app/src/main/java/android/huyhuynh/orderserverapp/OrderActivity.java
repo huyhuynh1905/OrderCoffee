@@ -5,53 +5,175 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.huyhuynh.orderserverapp.model.DanhSachOrder;
 import android.huyhuynh.orderserverapp.model.DanhSachOrderAdapter;
 import android.huyhuynh.orderserverapp.model.MenuOrder;
+import android.huyhuynh.orderserverapp.model.MenuOrderAdapter;
+import android.huyhuynh.orderserverapp.model.Message;
+import android.huyhuynh.orderserverapp.retrofit.APIUltils;
+import android.huyhuynh.orderserverapp.retrofit.DataClient;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class OrderActivity extends AppCompatActivity {
 
-    ListView lvOrder;
+    ListView lvOrder,lvItemMenuOrder;
+    TextView txtTenBanOrder, txtTongGiaOrder;
     DanhSachOrderAdapter mOrderAdapter;
+    MenuOrderAdapter mMenuOrderAdapter;
+    List<DanhSachOrder> arrOrder = new ArrayList<>();
+    List<MenuOrder> arrMenuOrder = new ArrayList<>();
+    int selectItemOrder = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
+
         init();
+        lvOrder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                selectItemOrder = i;
+                clickItemOrder(i);
+            }
+        });
+
+    }
+
+    //Kích vào item
+    private void clickItemOrder(int posion) {
+        List<MenuOrder> menuOrders = arrOrder.get(posion).getListMenuOrder();
+        arrMenuOrder.clear();
+        for (MenuOrder menuOrder : menuOrders){
+            arrMenuOrder.add(menuOrder);
+        }
+        mOrderAdapter.notifyDataSetChanged();
+        mMenuOrderAdapter.notifyDataSetChanged();
+        Log.d("ItemClick", "clickItemOrder: "+arrMenuOrder.get(0).getTenThucUong());
+        DecimalFormat format = new DecimalFormat("###,###");
+        double tongGia = arrOrder.get(posion).getTongGia();
+        txtTenBanOrder.setText("Tên bàn: "+arrOrder.get(posion).getTenBan());
+        txtTongGiaOrder.setText("Tổng tiền: "+format.format(tongGia)+"vnđ");
     }
 
     private void init() {
         lvOrder = findViewById(R.id.listViewOrder);
+        lvItemMenuOrder = findViewById(R.id.lvItemMenuOrder);
+        txtTenBanOrder = findViewById(R.id.txtTenbanOrder);
+        txtTongGiaOrder = findViewById(R.id.txtTonggiaOrder);
 
-        //Test
-        MenuOrder menuOrder1 = new MenuOrder("Nước Cam 1",2, (double) 48000);
-        MenuOrder menuOrder2 = new MenuOrder("Nước Cam 2",2, (double) 48000);
-        MenuOrder menuOrder3 = new MenuOrder("Nước Cam 3",2, (double) 48000);
-        MenuOrder menuOrder4 = new MenuOrder("Nước Cam 4",2, (double) 48000);
-        MenuOrder menuOrder5 = new MenuOrder("Nước Cam 5",2, (double) 48000);
-        MenuOrder menuOrder6 = new MenuOrder("Nước Cam 6",2, (double) 48000);
 
-        List<MenuOrder> listMenu1  = new ArrayList<>();
-        listMenu1.add(menuOrder1);
-        listMenu1.add(menuOrder2);
-        listMenu1.add(menuOrder3);
-        DanhSachOrder danhSachOrder1 = new DanhSachOrder("-2137966662","Bàn số 3", listMenu1, (double) (48000*3));
-
-        List<MenuOrder> listMenu2  = new ArrayList<>();
-        listMenu2.add(menuOrder4);
-        listMenu2.add(menuOrder5);
-        listMenu2.add(menuOrder6);
-        DanhSachOrder danhSachOrder2 = new DanhSachOrder("-2138252421","Bàn số 5", listMenu2, (double) (48000*4));
-
-        List<DanhSachOrder> arOrders = new ArrayList<>();
-        arOrders.add(danhSachOrder1);
-        arOrders.add(danhSachOrder2);
-
-        mOrderAdapter = new DanhSachOrderAdapter(OrderActivity.this,R.layout.item_listview_order,arOrders);
+        loadListOrder();
+        mOrderAdapter = new DanhSachOrderAdapter(OrderActivity.this,R.layout.item_listview_order,arrOrder);
         lvOrder.setAdapter(mOrderAdapter);
+
+        mMenuOrderAdapter = new MenuOrderAdapter(OrderActivity.this,R.layout.item_listview_ordermenu,arrMenuOrder);
+        lvItemMenuOrder.setAdapter(mMenuOrderAdapter);
+
+    }
+
+
+    //Lấy danh sách đang order
+    public void loadListOrder(){
+        DataClient dataClient = APIUltils.getDataClient();
+        Call<List<DanhSachOrder>> callback = dataClient.getListOrder("");
+        callback.enqueue(new Callback<List<DanhSachOrder>>() {
+            @Override
+            public void onResponse(Call<List<DanhSachOrder>> call, Response<List<DanhSachOrder>> response) {
+                List<DanhSachOrder> orders = response.body();
+                arrOrder.clear();
+                for (DanhSachOrder order : orders){
+                    arrOrder.add(order);
+                }
+                Collections.reverse(arrOrder);
+                mOrderAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<List<DanhSachOrder>> call, Throwable t) {
+                Log.d("OrderActivity", "ErrorRetrofit - loadListOrder: "+t.getMessage());
+            }
+        });
+    }
+
+    public void xacNhanOrder(View view) {
+        DataClient dataClient = APIUltils.getDataClient();
+        if (selectItemOrder!=-1){
+            final DanhSachOrder sachOrder = arrOrder.get(selectItemOrder);
+            sachOrder.setMessage("huyhuynh19");
+            retrofit2.Call<Message> callback = dataClient.xacNhanOrder(sachOrder);
+            callback.enqueue(new Callback<Message>() {
+                @Override
+                public void onResponse(Call<Message> call, Response<Message> response) {
+                    Message message = response.body();
+                    if (message.getMessage().equals("Success!")){
+                        arrOrder.remove(sachOrder);
+                        arrMenuOrder.clear();
+                        Toast.makeText(OrderActivity.this,"Đã xác nhận!", Toast.LENGTH_LONG).show();
+                    }
+                    Log.d("XÁC Nhận","Message: "+message.getMessage());
+                    mOrderAdapter.notifyDataSetChanged();
+                    mMenuOrderAdapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onFailure(Call<Message> call, Throwable t) {
+                    Log.d("OrderActivity", "ErrorRetrofit - xacNhanOrder: "+t.getMessage());
+                }
+            });
+            selectItemOrder = -1;
+        } else {
+            Toast.makeText(OrderActivity.this,"Vui lòng chọn trước khi xác nhận!",
+                    Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public void huyOrder(View view) {
+        DataClient dataClient = APIUltils.getDataClient();
+        if (selectItemOrder!=-1){
+            final DanhSachOrder sachOrder = arrOrder.get(selectItemOrder);
+            retrofit2.Call<Message> callback = dataClient.huyOrder(sachOrder);
+            callback.enqueue(new Callback<Message>() {
+                @Override
+                public void onResponse(Call<Message> call, Response<Message> response) {
+                    Message message = response.body();
+                    if (message.getMessage().equals("Success!")){
+                        arrOrder.remove(sachOrder);
+                        arrMenuOrder.clear();
+                        Toast.makeText(OrderActivity.this,"Đã huỷ!", Toast.LENGTH_LONG).show();
+                    }
+                    Log.d("Huỷ","Message: "+message.getMessage());
+                    mOrderAdapter.notifyDataSetChanged();
+                    mMenuOrderAdapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onFailure(Call<Message> call, Throwable t) {
+                    Log.d("OrderActivity", "ErrorRetrofit - xacNhanOrder: "+t.getMessage());
+                }
+            });
+            selectItemOrder = -1;
+        } else {
+            Toast.makeText(OrderActivity.this,"Vui lòng chọn trước khi xác nhận!",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void logOutOrder(View view) {
 
     }
 }

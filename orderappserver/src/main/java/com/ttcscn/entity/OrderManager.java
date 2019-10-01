@@ -7,6 +7,7 @@ public class OrderManager {
 	private String tenBan;
 	private List<MenuOrder> listMenuOrder;
 	private double tongGia;
+	private String message;
 	
 	public OrderManager() {
 		super();
@@ -62,6 +63,14 @@ public class OrderManager {
 
 	public void setTongGia(double tongGia) {
 		this.tongGia = tongGia;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 	
 	

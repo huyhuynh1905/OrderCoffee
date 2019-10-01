@@ -14,8 +14,10 @@
         android:screenOrientation="landscape"
         android:supportsRtl="true"
         android:theme="@style/AppFullScreen">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".OrderActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity android:name=".OrderActivity"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

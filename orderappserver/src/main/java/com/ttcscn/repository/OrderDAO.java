@@ -42,16 +42,20 @@ public class OrderDAO implements Dao<Order> {
 		return "Đặt thành công!";
 	}
 
-	public String update(Order t) {
+	public String update(String maOrder, String maBan,String nguoiOrder) {
 		Session session = sessionHibernate.getCurrentSession();
-		session.update(t);
-		return "Cập nhật Order thành công";
+		String sql = "update ordertab set tinhTrang = 0 , nguoiOrder = '"+nguoiOrder+"' where maOrder = '"+maOrder+"' and maBan = '"+maBan+"'";
+		System.out.println(sql);
+		int result = session.createQuery(sql).executeUpdate();
+		return "Success!";
 	}
 
-	public String delete(Order order) {
-		HoanThanh hoanthanh = new HoanThanh(order.getMaOrder(), order.getDonGiaOrder(), "Huy");
-		hoanthanhDao.save(hoanthanh);
-		return "Xóa thành công";
+	public String delete(String maOrder, String maBan) {
+		Session session = sessionHibernate.getCurrentSession();
+		String sql = "delete ordertab where maOrder = '"+maOrder+"' and maBan = '"+maBan+"'";
+		System.out.println(sql);
+		int result = session.createQuery(sql).executeUpdate();
+		return "Success!";
 	}
 
 	public Order findById(String maOrder) {
@@ -64,6 +68,16 @@ public class OrderDAO implements Dao<Order> {
 	public void changeOrder(Order order) {
 		HoanThanh hoanthanh = new HoanThanh(order.getMaOrder(), order.getDonGiaOrder(), "HoanThanh");
 		hoanthanhDao.save(hoanthanh);
+	}
+
+	public String update(Order t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String delete(Order t) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

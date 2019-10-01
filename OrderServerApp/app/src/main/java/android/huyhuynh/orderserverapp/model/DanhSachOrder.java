@@ -20,6 +20,9 @@ public class DanhSachOrder {
     @SerializedName("tongGia")
     @Expose
     private Double tongGia;
+    @SerializedName("message")
+    @Expose
+    private String message;
 
     public DanhSachOrder(String maOrder, String tenBan, List<MenuOrder> listMenuOrder, Double tongGia) {
         this.maOrder = maOrder;
@@ -60,4 +63,11 @@ public class DanhSachOrder {
         this.tongGia = tongGia;
     }
 
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

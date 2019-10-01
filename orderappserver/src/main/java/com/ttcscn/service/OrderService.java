@@ -24,12 +24,12 @@ public class OrderService {
 		return orderDao.save(order);
 	}
 	
-	public String updateOrder(Order order) {
-		return orderDao.update(order);
+	public String updateOrder(String maOrder, String maBan,String nguoiOrder) {
+		return orderDao.update(maOrder, maBan,nguoiOrder);
 	}
 	
-	public String deleteOrder(Order order) {
-		return orderDao.delete(order);
+	public String deleteOrder(String maOrder, String maBan) {
+		return orderDao.delete(maOrder, maBan);
 	}
 	public Order findOrder(String maOrder) {
 		return orderDao.findById(maOrder);

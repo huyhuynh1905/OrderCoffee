@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="600dp"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/txtItemTenThucUong"
+            android:layout_height="50dp"
+            android:layout_width="200dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="1248742786"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/txtItemSoLuong"
+            android:layout_height="50dp"
+            android:layout_width="200dp"
+            android:gravity="center"
+            android:text="5"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/txtItemDonGia"
+            android:layout_height="50dp"
+            android:layout_width="200dp"
+            android:gravity="right|center"
+            android:text="150.000vnđ"
+            android:paddingRight="10dp"
+            android:textSize="22sp" />
+    </LinearLayout>
+</LinearLayout>
