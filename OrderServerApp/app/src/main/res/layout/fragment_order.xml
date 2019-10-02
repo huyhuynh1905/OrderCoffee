@@ -2,18 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="1275dp"
+    android:layout_height="627dp"
     android:background="#E3B1B1"
     tools:context=".OrderActivity">
 
     <LinearLayout
         android:id="@+id/layoutnv"
         android:layout_width="480dp"
-        android:layout_height="700dp"
+        android:layout_height="580dp"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="50dp"
         android:background="#FFF"
         android:listSelector="#D494DF"
@@ -32,14 +32,14 @@
                 android:background="#FA958D"
                 android:gravity="center"
                 android:text="Mã Order"
-                android:textSize="22sp"/>
+                android:textSize="18sp"/>
             <TextView
                 android:layout_width="160dp"
                 android:layout_height="match_parent"
                 android:background="#85D388"
                 android:gravity="center"
-                android:text="Bàn số"
-                android:textSize="22sp" />
+                android:text="Bàn Số"
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="160dp"
@@ -47,23 +47,23 @@
                 android:background="#C4B4B4"
                 android:gravity="center"
                 android:text="Tổng Giá"
-                android:textSize="22sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
         <ListView
-            android:id="@+id/lvOrder"
+            android:id="@+id/lvfragOrder"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#fff"
             android:focusable="true"
             android:listSelector="#E6DB7C">
-         </ListView>
-        </LinearLayout>
+        </ListView>
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutShow"
-        android:layout_width="711dp"
-        android:layout_height="520dp"
+        android:layout_width="680dp"
+        android:layout_height="400dp"
         android:layout_marginStart="18dp"
         android:layout_marginLeft="18dp"
         android:layout_marginTop="50dp"
@@ -77,10 +77,10 @@
         <LinearLayout
             android:id="@+id/layoutlvmenuorder"
             android:layout_width="600dp"
-            android:layout_height="390dp"
+            android:layout_height="280dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTenBan"
+            app:layout_constraintTop_toBottomOf="@+id/txtTenBanFrag"
             android:layout_marginStart="50dp"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="16dp"
@@ -117,17 +117,17 @@
                     android:textColor="#FFF"
                     android:textSize="22sp" />
             </LinearLayout>
+
             <ListView
-                android:id="@+id/lvItemMenuOrder"
+                android:id="@+id/lvItemFragOrder"
                 android:layout_width="600dp"
-                android:layout_height="350dp"
+                android:layout_height="240dp"
                 android:background="#fff"
-                android:listSelector="#529AA3"
-                 />
+                android:listSelector="#529AA3" />
         </LinearLayout>
 
         <TextView
-            android:id="@+id/txtTonggia"
+            android:id="@+id/txtTonggiaFrag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -140,11 +140,11 @@
             app:layout_constraintTop_toBottomOf="@+id/layoutlvmenuorder" />
 
         <TextView
-            android:id="@+id/txtTenBan"
+            android:id="@+id/txtTenBanFrag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
-            android:layout_marginLeft="55dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="35dp"
             android:text="Tên Bàn: Bàn số 5"
@@ -156,50 +156,33 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/btnXacNhan"
-        android:layout_width="145dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="75dp"
-        android:text="Xác Nhận"
-        android:textSize="50px"
-        android:textAllCaps="false"
-        android:onClick="xacNhanOrder"
-        android:textColor="#fff"
+        android:id="@+id/btnXacNhanFrag"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginLeft="104dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/select_button_ok"
+        android:text="Xác nhận"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="40px"
         app:layout_constraintStart_toEndOf="@+id/layoutnv"
         app:layout_constraintTop_toBottomOf="@+id/layoutShow" />
 
     <Button
-        android:id="@+id/btnHuy"
-        android:layout_width="145dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="75dp"
+        android:id="@+id/btnHuyFrag"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="324dp"
+        android:layout_marginLeft="324dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/select_button_sua"
         android:text="Huỷ"
-        android:onClick="huyOrder"
-        android:textSize="50px"
         android:textAllCaps="false"
         android:textColor="#fff"
-        android:background="@drawable/select_button_huy"
-        app:layout_constraintStart_toEndOf="@+id/btnXacNhan"
+        android:textSize="40px"
+        app:layout_constraintStart_toEndOf="@+id/btnXacNhanFrag"
         app:layout_constraintTop_toBottomOf="@+id/layoutShow" />
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="145dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="80dp"
-        android:text="Đăng xuất"
-        android:onClick="logOutOrder"
-        android:textSize="50px"
-        android:textAllCaps="false"
-        android:textColor="#fff"
-        android:background="@drawable/select_button_logout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutShow" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -69,10 +69,11 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     private void init() {
-        lvOrder = findViewById(R.id.lvNhanvien);
+        //Ánh xạ
+        lvOrder = findViewById(R.id.lvOrder);
         lvItemMenuOrder = findViewById(R.id.lvItemMenuOrder);
-        txtTenBanOrder = findViewById(R.id.txtTenbanOrder);
-        txtTongGiaOrder = findViewById(R.id.txtTonggiaOrder);
+        txtTenBanOrder = findViewById(R.id.txtTenBan);
+        txtTongGiaOrder = findViewById(R.id.txtTonggia);
 
 
         loadListOrder();
@@ -175,4 +176,5 @@ public class OrderActivity extends AppCompatActivity {
     public void logOutOrder(View view) {
 
     }
+
 }

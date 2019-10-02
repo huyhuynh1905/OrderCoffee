@@ -15,17 +15,38 @@
         android:background="#AC0D19"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="134dp"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/sfuangieitalic"
+            android:gravity="right|center"
+            android:paddingRight="20dp"
+            android:textColor="#fff"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/message"
-            android:layout_width="match_parent"
+            android:layout_width="950dp"
             android:layout_height="match_parent"
             android:fontFamily="@font/sfumericantypebold"
             android:gravity="center"
-            android:text="@string/title_home"
+            android:text="Quản Lí Nhân Sự"
             android:textColor="#fff"
             android:textSize="32sp" />
+        <TextView
+            android:id="@+id/usermanemanager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/sfuangieitalic"
+            android:gravity="right|center"
+            android:paddingRight="20dp"
+            android:text="huyhuynh19"
+            android:textColor="#fff"
+            android:textSize="24sp" />
     </LinearLayout>
 
 

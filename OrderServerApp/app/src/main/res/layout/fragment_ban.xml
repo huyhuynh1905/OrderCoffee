@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="1275dp"
+    android:layout_height="627dp"
+    android:background="#E3B1B1"
+    tools:context=".OrderActivity">
+
+    <LinearLayout
+        android:id="@+id/layoutnv"
+        android:layout_width="480dp"
+        android:layout_height="580dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
+        android:background="#FFF"
+        android:listSelector="#D494DF"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:background="#FA958D"
+                android:gravity="center"
+                android:text="Mã Bàn"
+                android:textSize="18sp"/>
+            <TextView
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:background="#85D388"
+                android:gravity="center"
+                android:text="Tên Bàn"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lvFragBan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:focusable="true"
+            android:listSelector="#E6DB7C">
+        </ListView>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutShow"
+        android:layout_width="680dp"
+        android:layout_height="400dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/layoutnv"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/edtMaBan"
+            android:layout_width="245dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="75dp"
+            android:background="@drawable/editext_custom"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="8dp"
+            android:text="MB04"
+            android:textColor="#571919"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginStart="95dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginTop="75dp"
+            android:text="Mã Bàn: "
+            android:textColor="#000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edtTenBan"
+            android:layout_width="245dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/editext_custom"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingLeft="8dp"
+            android:text="Bàn số 4"
+            android:textColor="#571919"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/edtMaBan" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginStart="95dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginTop="20dp"
+            android:text="Tên bàn: "
+            android:textColor="#000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/edtMoTa"
+            android:layout_width="245dp"
+            android:layout_height="83dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/editext_custom"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:paddingLeft="8dp"
+            android:text="Góc 6h"
+            android:textColor="#571919"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/edtTenBan" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginStart="95dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginTop="20dp"
+            android:text="Mô tả: "
+            android:textColor="#000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btnThemBan"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginLeft="104dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/select_button_ok"
+        android:text="Thêm"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="40px"
+        app:layout_constraintStart_toEndOf="@+id/layoutnv"
+        app:layout_constraintTop_toBottomOf="@+id/layoutShow" />
+
+    <Button
+        android:id="@+id/btnXoaBan"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/select_button_huy"
+        android:text="Xoá"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="40px"
+        app:layout_constraintStart_toEndOf="@+id/btnCapNhatBan"
+        app:layout_constraintTop_toBottomOf="@+id/layoutShow" />
+
+    <Button
+        android:id="@+id/btnCapNhatBan"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/select_button_sua"
+        android:text="Cập Nhật"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="40px"
+        app:layout_constraintStart_toEndOf="@+id/btnThemBan"
+        app:layout_constraintTop_toBottomOf="@+id/layoutShow" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
