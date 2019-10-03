@@ -28,6 +28,20 @@ public class NhanVien {
     @Expose
     private Boolean chucVu;
 
+    public NhanVien(String username, String password, String hoTen, Integer namSinh, String soDienThoai, String diaChi, Boolean chucVu) {
+        this.username = username;
+        this.password = password;
+        this.hoTen = hoTen;
+        this.namSinh = namSinh;
+        this.soDienThoai = soDienThoai;
+        this.diaChi = diaChi;
+        this.chucVu = chucVu;
+    }
+
+    public NhanVien() {
+
+    }
+
     public String getUsername() {
         return username;
     }

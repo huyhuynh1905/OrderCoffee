@@ -24,19 +24,19 @@ public class NhanVienDAO implements Dao<NhanVien>{
 	public String save(NhanVien t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.save(t);
-		return "Thêm nhân viên thành công!";
+		return "Success";
 	}
 
 	public String update(NhanVien t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.update(t);
-		return "Update nhân viên thành công!";
+		return "Success";
 	}
 
 	public String delete(NhanVien t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.delete(t);
-		return "Xoá thành công!";
+		return "Success";
 	}
 
 	public NhanVien findById(String username) {

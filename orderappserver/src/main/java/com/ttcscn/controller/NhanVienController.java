@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ttcscn.dto.NhanVienDto;
+import com.ttcscn.entity.Message;
 import com.ttcscn.entity.NhanVien;
 import com.ttcscn.service.NhanVienService;
 
@@ -33,47 +34,41 @@ public class NhanVienController {
 	
 	@RequestMapping(value = "/nhanvien/add", method = RequestMethod.POST)
 	@ResponseBody
-	public NhanVienDto saveNhanvien(@RequestBody NhanVien nhanvien) {
-		NhanVienDto nvdto = new NhanVienDto();
+	public Message saveNhanvien(@RequestBody NhanVien nhanvien) {
+		Message mess = new Message();
 		NhanVien nv = nhanvienService.findNhanVienById(nhanvien.getUsername());
 		if(nv!=null) {
-			nvdto.setStatus("Failed");
-			nvdto.setMessage("Tài khoản này đã tồn tại");
+			mess.setMessage("Failed");
 		} else {
-			nvdto.setStatus("Success");
-			nvdto.setMessage(nhanvienService.saveNhanVien(nhanvien));
+			mess.setMessage(nhanvienService.saveNhanVien(nhanvien));
 		}
-		return nvdto;
+		return mess;
 	}
 	
 	@RequestMapping(value = "/nhanvien/update", method = RequestMethod.POST)
 	@ResponseBody
-	public NhanVienDto updateNhanvien(@RequestBody NhanVien nhanvien) {
-		NhanVienDto nvdto = new NhanVienDto();
+	public Message updateNhanvien(@RequestBody NhanVien nhanvien) {
+		Message mess = new Message();
 		NhanVien nv = nhanvienService.findNhanVienById(nhanvien.getUsername());
 		if(nv!=null) {
-			nvdto.setStatus("Success");
-			nvdto.setMessage(nhanvienService.updateNhanVien(nhanvien));
+			mess.setMessage(nhanvienService.updateNhanVien(nhanvien));
 		} else {
-			nvdto.setStatus("Failed");
-			nvdto.setMessage("Tài khoản này không tồn tại");
+			mess.setMessage("Failed");
 		}
-		return nvdto;
+		return mess;
 	}
 	
 	@RequestMapping(value = "/nhanvien/delete", method = RequestMethod.POST)
 	@ResponseBody
-	public NhanVienDto deleteNhanvien(@RequestBody NhanVien nhanvien) {
-		NhanVienDto nvdto = new NhanVienDto();
+	public Message deleteNhanvien(@RequestBody NhanVien nhanvien) {
+		Message mess = new Message();
 		NhanVien nv = nhanvienService.findNhanVienById(nhanvien.getUsername());
 		if(nv!=null) {
-			nvdto.setStatus("Success");
-			nvdto.setMessage(nhanvienService.deleteNhanVien(nhanvien));
+			mess.setMessage(nhanvienService.deleteNhanVien(nv));
 		} else {
-			nvdto.setStatus("Failed");
-			nvdto.setMessage("Tài khoản này không tồn tại");
+			mess.setMessage("Failed");
 		}
-		return nvdto;
+		return mess;
 	}
 	
 	@RequestMapping(value = "/nhanvien/find",method = RequestMethod.GET)

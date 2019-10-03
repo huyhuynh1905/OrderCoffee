@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtItemMaNv"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:text="Mã Nhân Viên"
+        android:textSize="18sp"/>
+    <TextView
+        android:id="@+id/txtItemTenNv"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:text="Tên nhân viên"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtItemChucVuNv"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:text="Chức vụ"
+        android:textSize="18sp" />
+
+</LinearLayout>

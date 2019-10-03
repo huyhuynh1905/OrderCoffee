@@ -32,6 +32,18 @@ public interface DataClient {
     @POST("ordermanager/huyorder")
     Call<Message> huyOrder(@Body DanhSachOrder dsOrder);
 
+    @POST("nhanvien/get")
+    Call<List<NhanVien>> getAllNhanVien();
+
+    @POST("nhanvien/add")
+    Call<Message> themNhanVien(@Body NhanVien nv);
+
+    @POST("nhanvien/update")
+    Call<Message> capNhatNhanVien(@Body NhanVien nv);
+
+    @POST("nhanvien/delete")
+    Call<Message> xoaNhanVien(@Body NhanVien nv);
+
     /*@FormUrlEncoded
     @POST("menu/get")
     Call<List<Menu>> getListMenu(@Field("maBan") String maBan);

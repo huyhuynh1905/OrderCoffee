@@ -80,12 +80,11 @@
             android:layout_height="28dp"
             android:layout_marginStart="50dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/editext_custom"
             android:ems="10"
             android:inputType="textPersonName"
             android:paddingLeft="8dp"
-            android:text="huyhuynh1905"
             android:textColor="#571919"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/textView"
@@ -97,7 +96,7 @@
             android:layout_height="28dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="20dp"
             android:text="Username: "
             android:textColor="#000"
             android:textSize="20sp"
@@ -115,11 +114,10 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:paddingLeft="8dp"
-            android:text="1998"
             android:textColor="#571919"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/edtUsernameNv" />
+            app:layout_constraintTop_toBottomOf="@+id/edtTenNv" />
 
         <TextView
             android:id="@+id/textView7"
@@ -132,7 +130,7 @@
             android:textColor="#000"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
         <EditText
             android:id="@+id/edtTenNv"
@@ -145,11 +143,10 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:paddingLeft="8dp"
-            android:text="Huỳnh Bảo Huy"
             android:textColor="#571919"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/edtNamsinh" />
+            app:layout_constraintTop_toBottomOf="@+id/edtUsernameNv" />
 
         <TextView
             android:id="@+id/textView1"
@@ -162,7 +159,7 @@
             android:textColor="#000"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <EditText
             android:id="@+id/edtPhoneNv"
@@ -176,11 +173,10 @@
             android:inputType="textPersonName"
             android:paddingLeft="8dp"
             android:gravity="center"
-            android:text="0966327151"
             android:textColor="#571919"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/edtTenNv" />
+            app:layout_constraintTop_toBottomOf="@+id/edtNamsinh" />
 
         <TextView
             android:id="@+id/textView2"
@@ -193,7 +189,7 @@
             android:textColor="#000"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView1" />
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <EditText
             android:id="@+id/edtPassNv"
@@ -206,7 +202,6 @@
             android:ems="10"
             android:inputType="textPassword"
             android:paddingLeft="8dp"
-            android:text="0966327151"
             android:textColor="#571919"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/textView"
@@ -236,7 +231,6 @@
             android:ems="10"
             android:inputType="textPassword"
             android:paddingLeft="8dp"
-            android:text="0966327151"
             android:textColor="#571919"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/textView"
@@ -266,7 +260,6 @@
             android:ems="10"
             android:inputType="textMultiLine"
             android:paddingLeft="8dp"
-            android:text="17A Cộng Hoà - P4 - Tân Bình - Tp. Hồ Chí Minh"
             android:textColor="#571919"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/textView"
