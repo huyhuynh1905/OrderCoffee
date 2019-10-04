@@ -25,19 +25,19 @@ public class MenuDAO implements Dao<Menu>{
 	public String save(Menu t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.save(t);
-		return "Save OK";
+		return "Success";
 	}
 
 	public String update(Menu t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.update(t);
-		return "Update OK";
+		return "Success";
 	}
 
 	public String delete(Menu t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.remove(t);
-		return "Remove OK";
+		return "Success";
 	}
 
 	public Menu findById(String maThucUong) {

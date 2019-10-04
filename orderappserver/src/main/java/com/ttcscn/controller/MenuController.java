@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ttcscn.dto.MenuDto;
 import com.ttcscn.entity.Menu;
+import com.ttcscn.entity.Message;
 import com.ttcscn.service.MenuService;
 
 @RestController
@@ -22,7 +23,7 @@ public class MenuController {
 	
 	@RequestMapping(value = "/menu/get", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Menu> getAllListMenuPost(@RequestParam("maBan") String maBan) {
+	public List<Menu> getAllListMenuPost() {
 		List<Menu> arrMenu = menuService.getAllList();
 		return arrMenu;
 	}
@@ -35,50 +36,44 @@ public class MenuController {
 
 	@RequestMapping(value = "/menu/add", method = RequestMethod.POST)
 	@ResponseBody
-	public MenuDto saveMenu(@RequestBody Menu menu) {
-		MenuDto menuDto = new MenuDto();
+	public Message saveMenu(@RequestBody Menu menu) {
+		Message mess = new Message();
 		Menu menufromData = menuService.findItemById(menu.getMaThucUong());
 		if(menufromData!=null) {
-			menuDto.setStatus("Failse");
-			menuDto.setMessage("Da ton tai thuc uong nay");
+			mess.setMessage("Failse");
 		} else {
-			String mess = menuService.saveMenu(menu);
-			menuDto.setStatus("Success");
-			menuDto.setMessage(mess);
+			String message = menuService.saveMenu(menu);
+			mess.setMessage(message);
 		}
-		return menuDto;
+		return mess;
 	}
 	
 	@RequestMapping(value = "/menu/update", method = RequestMethod.POST)
 	@ResponseBody
-	public MenuDto updateMenu(@RequestBody Menu menu) {
-		MenuDto menuDto = new MenuDto();
+	public Message updateMenu(@RequestBody Menu menu) {
+		Message mess = new Message();
 		Menu menufromData = menuService.findItemById(menu.getMaThucUong());
 		if(menufromData==null) {
-			menuDto.setStatus("Failse");
-			menuDto.setMessage("Khong tim thay thuc uong nay");
+			mess.setMessage("Failse");
 		} else {
-			String mess = menuService.updateMenu(menu);
-			menuDto.setStatus("Success");
-			menuDto.setMessage(mess);
+			String message = menuService.updateMenu(menu);
+			mess.setMessage(message);
 		}
-		return menuDto;
+		return mess;
 	}
 	
 	@RequestMapping(value = "/menu/delete", method = RequestMethod.POST)
 	@ResponseBody
-	public MenuDto deleteMenu(@RequestBody Menu menu) {
-		MenuDto menuDto = new MenuDto();
+	public Message deleteMenu(@RequestBody Menu menu) {
+		Message message = new Message();
 		Menu menufromData = menuService.findItemById(menu.getMaThucUong());
 		if(menufromData==null) {
-			menuDto.setStatus("Failse");
-			menuDto.setMessage("Khong tim thay thuc uong nay");
+			message.setMessage("Failse");
 		} else {
-			String mess = menuService.deleteMenu(menu);
-			menuDto.setStatus("Success");
-			menuDto.setMessage(mess);
+			String mess = menuService.deleteMenu(menufromData);
+			message.setMessage("Success");
 		}
-		return menuDto;
+		return message;
 	}
 	
 	@RequestMapping(value = "/menu/find", method = RequestMethod.GET)

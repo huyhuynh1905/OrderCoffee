@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ttcscn.dto.BanDto;
 import com.ttcscn.entity.Ban;
+import com.ttcscn.entity.Message;
 import com.ttcscn.service.BanService;
 
 @RestController
@@ -20,7 +21,7 @@ public class BanController {
 	@Autowired
 	BanService banService;
 	
-	@RequestMapping(value = "/ban/get", method = RequestMethod.GET)
+	@RequestMapping(value = "/ban/get", method = RequestMethod.POST)
 	@ResponseBody
 	public List<Ban> getAllBan(){
 		List<Ban> arrBan = banService.getAllList();
@@ -29,47 +30,41 @@ public class BanController {
 	
 	@RequestMapping(value = "/ban/add", method = RequestMethod.POST)
 	@ResponseBody
-	public BanDto saveBan(@RequestBody Ban ban) {
-		BanDto bandto = new BanDto();
+	public Message saveBan(@RequestBody Ban ban) {
+		Message mess = new Message();
 		Ban b = banService.findBanById(ban.getMaBan());
 		if(b!=null) {
-			bandto.setStatus("Failed");
-			bandto.setMessage("Mã bàn đã tồn tại!");
+			mess.setMessage("Failed");
 		} else {
-			bandto.setStatus("Success");
-			bandto.setMessage(banService.saveBan(ban));
+			mess.setMessage(banService.saveBan(ban));
 		}
-		return bandto;
+		return mess;
 	}
 	
 	@RequestMapping(value = "/ban/update", method = RequestMethod.POST)
 	@ResponseBody
-	public BanDto updateBan(@RequestBody Ban ban) {
-		BanDto bandto = new BanDto();
+	public Message updateBan(@RequestBody Ban ban) {
+		Message mess = new Message();
 		Ban b = banService.findBanById(ban.getMaBan());
 		if(b!=null) {
-			bandto.setStatus("Success");
-			bandto.setMessage(banService.updateBan(ban));
+			mess.setMessage(banService.updateBan(ban));
 		} else {
-			bandto.setStatus("Failed");
-			bandto.setMessage("Không tìm thấy mã bàn này!");
+			mess.setMessage("Failed");
 		}
-		return bandto;
+		return mess;
 	}
 	
 	@RequestMapping(value = "/ban/delete", method = RequestMethod.POST)
 	@ResponseBody
-	public BanDto deleteBan(@RequestBody Ban ban) {
-		BanDto bandto = new BanDto();
+	public Message deleteBan(@RequestBody Ban ban) {
+		Message mess = new Message();
 		Ban b = banService.findBanById(ban.getMaBan());
 		if(b!=null) {
-			bandto.setStatus("Success");
-			bandto.setMessage(banService.deleteBan(ban));
+			mess.setMessage(banService.deleteBan(b));
 		} else {
-			bandto.setStatus("Failed");
-			bandto.setMessage("Không tìm thấy mã bàn này!");
+			mess.setMessage("Failed");
 		}
-		return bandto;
+		return mess;
 	}
 	
 	@RequestMapping(value = "/ban/find", method = RequestMethod.GET)

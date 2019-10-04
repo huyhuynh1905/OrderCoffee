@@ -26,19 +26,19 @@ public class BanDAO implements Dao<Ban> {
 	public String save(Ban t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.save(t);
-		return "Thêm thành công!";
+		return "Success";
 	}
 
 	public String update(Ban t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.update(t);
-		return "Cập nhật thành công cho: "+ t.getMaBan();
+		return "Success";
 	}
 
 	public String delete(Ban t) {
 		Session session = sessionHibernate.getCurrentSession();
 		session.remove(t);
-		return "Xoá thành công "+t.getMaBan();
+		return "Success";
 	}
 
 	public Ban findById(String maBan) {

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ttcscn.entity.Menu;
+import com.ttcscn.entity.Message;
 
 
 @Controller
@@ -37,18 +38,19 @@ public class TrangChu {
 	
 	@RequestMapping(value = "/uploadanh", method = RequestMethod.POST)
 	@ResponseBody
-	public String uploadFile(@RequestParam("imageFile") MultipartFile imageFile) {
+	public Message uploadFile(@RequestParam("imageFile") MultipartFile imageFile) {
 	    System.out.println("Chay duoc");
+	    Message message = new Message();
 	    try {
 	      String fileName = imageFile.getOriginalFilename();
-	      File file = new File("D:\\Acount", fileName);
+	      File file = new File("C:\\xampp\\htdocs\\ordercoffee\\image", fileName);
 	      imageFile.transferTo(file);
 	    } catch (Exception e) {
 	    	System.out.println("Uploadddd Errrorrrr");
 	      //e.printStackTrace();
 	    }
-	    System.out.println("Uploadddd");
-	    return "result_ok";
+	    message.setMessage("Success");
+	    return message;
 	  }
 	  
 }
