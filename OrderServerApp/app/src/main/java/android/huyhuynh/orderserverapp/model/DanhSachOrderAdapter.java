@@ -17,11 +17,11 @@ import java.util.List;
  */
 public class DanhSachOrderAdapter extends BaseAdapter {
 
-    OrderActivity mContext;
+    Context mContext;
     int layout;
     List<DanhSachOrder> arrDSOrder;
 
-    public DanhSachOrderAdapter(OrderActivity context, int layout, List<DanhSachOrder> arrDSOrder) {
+    public DanhSachOrderAdapter(Context context, int layout, List<DanhSachOrder> arrDSOrder) {
         mContext = context;
         this.layout = layout;
         this.arrDSOrder = arrDSOrder;

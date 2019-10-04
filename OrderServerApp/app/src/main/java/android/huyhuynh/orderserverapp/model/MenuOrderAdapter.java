@@ -16,11 +16,11 @@ import java.util.List;
  * Created by Huy Huynh on 01-10-2019.
  */
 public class MenuOrderAdapter extends BaseAdapter {
-    OrderActivity mContext;
+    Context mContext;
     int layout;
     List<MenuOrder> arrMenuOrder;
 
-    public MenuOrderAdapter(OrderActivity context, int layout, List<MenuOrder> arrMenuOrder) {
+    public MenuOrderAdapter(Context context, int layout, List<MenuOrder> arrMenuOrder) {
         mContext = context;
         this.layout = layout;
         this.arrMenuOrder = arrMenuOrder;

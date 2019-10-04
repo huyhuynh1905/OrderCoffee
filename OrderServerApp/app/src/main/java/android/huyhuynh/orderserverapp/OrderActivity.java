@@ -46,7 +46,7 @@ public class OrderActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 selectItemOrder = i;
-                clickItemOrder(i);
+                clickItemOrder(selectItemOrder);
             }
         });
 
