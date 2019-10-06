@@ -33,7 +33,6 @@ public class OrderManagerController {
 	BanService banService;
 	
 	@RequestMapping(value = "/ordermanager/get", method = RequestMethod.POST)
-	@ResponseBody
 	public List<OrderManager> getAllListMenuOrder(@RequestParam("username") String username) {
 		List<OrderManager> arrOrderMaganer = new ArrayList();
 		List<Order> arrOrder = orderService.chuaOrder();
@@ -76,7 +75,6 @@ public class OrderManagerController {
 	
 	//Xác nhận order
 	@RequestMapping(value = "/ordermanager/xacnhan", method = RequestMethod.POST)
-	@ResponseBody
 	public Message xacNhanOrder(@RequestBody OrderManager dsOrder) {
 		String nguoiOrder = dsOrder.getMessage();
 		String maOrder = dsOrder.getMaOrder();
@@ -90,7 +88,6 @@ public class OrderManagerController {
 	
 	//Xác nhận order
 	@RequestMapping(value = "/ordermanager/huyorder", method = RequestMethod.POST)
-	@ResponseBody
 	public Message huyOrder(@RequestBody OrderManager dsOrder) {
 		String maOrder = dsOrder.getMaOrder();
 		String maBan = dsOrder.getTenBan();

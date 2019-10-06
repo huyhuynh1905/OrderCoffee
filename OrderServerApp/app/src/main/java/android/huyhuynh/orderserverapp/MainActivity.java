@@ -2,6 +2,9 @@ package android.huyhuynh.orderserverapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.huyhuynh.orderserverapp.model.NhanVien;
 import android.huyhuynh.orderserverapp.retrofit.APIUltils;
 import android.huyhuynh.orderserverapp.retrofit.DataClient;
@@ -47,16 +50,38 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<NhanVien> call, Response<NhanVien> response) {
                 nv = response.body();
                 if (nv.getUsername().equals(username)){
-                    Toast.makeText(MainActivity.this,"Đăng Nhập Thành Công",Toast.LENGTH_SHORT).show();
+                    if (nv.getChucVu()){
+                        Intent intent = new Intent(MainActivity.this,ManagerActivity.class);
+                        intent.putExtra("username",nv.getUsername());
+                        startActivity(intent);
+                        finish();
+                    } else if (!nv.getChucVu()){
+                        Intent intent = new Intent(MainActivity.this,OrderActivity.class);
+                        intent.putExtra("username",nv.getUsername());
+                        startActivity(intent);
+                        finish();
+                    }
                 } else {
-                    Toast.makeText(MainActivity.this,"Đăng nhập thất bại",Toast.LENGTH_SHORT).show();
+                    thongBao("Đăng nhập thất bại!");
                 }
             }
 
             @Override
             public void onFailure(Call<NhanVien> call, Throwable t) {
-                Log.d("MainActivity", "onFailure - loginToServer: "+t.getMessage());
+                Log.d("MainActivity", "onFailure - loginToServer: "+t.toString());
             }
         });
+    }
+    private void thongBao(String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Thông báo");
+        builder.setMessage(message);
+        builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.show();
     }
 }

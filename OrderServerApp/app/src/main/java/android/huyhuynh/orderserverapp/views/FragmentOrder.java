@@ -1,5 +1,6 @@
 package android.huyhuynh.orderserverapp.views;
 
+import android.huyhuynh.orderserverapp.ManagerActivity;
 import android.huyhuynh.orderserverapp.OrderActivity;
 import android.huyhuynh.orderserverapp.R;
 import android.huyhuynh.orderserverapp.model.DanhSachOrder;
@@ -38,7 +39,7 @@ import retrofit2.Response;
  */
 public class FragmentOrder extends Fragment {
 
-    Button btnXacNhanFr, btnHuyFr;
+    Button btnXacNhanFr, btnHuyFr, btnLamMoiFrag;
     TextView txtTenBanFr, txtTongGiaFr;
     ListView lvOrderFr, lvOrderFrItem;
 
@@ -56,6 +57,7 @@ public class FragmentOrder extends Fragment {
         //Ánh xạ
         btnXacNhanFr = view.findViewById(R.id.btnXacNhanFrag);
         btnHuyFr = view.findViewById(R.id.btnHuyFrag);
+        btnLamMoiFrag = view.findViewById(R.id.btnLamMoiFrag);
         txtTenBanFr = view.findViewById(R.id.txtTenBanFrag);
         txtTongGiaFr = view.findViewById(R.id.txtTonggiaFrag);
         lvOrderFrItem = view.findViewById(R.id.lvItemFragOrder);
@@ -89,6 +91,13 @@ public class FragmentOrder extends Fragment {
             @Override
             public void onClick(View view) {
                 huyOrder();
+            }
+        });
+
+        btnLamMoiFrag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadDanhSachOrder();
             }
         });
 
@@ -136,7 +145,7 @@ public class FragmentOrder extends Fragment {
         DataClient dataClient = APIUltils.getDataClient();
         if (selectItemOrder!=-1){
             final DanhSachOrder sachOrder = arrDSOrder.get(selectItemOrder);
-            sachOrder.setMessage("huyhuynh19");
+            sachOrder.setMessage(ManagerActivity.user);
             retrofit2.Call<Message> callback = dataClient.xacNhanOrder(sachOrder);
             callback.enqueue(new Callback<Message>() {
                 @Override

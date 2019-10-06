@@ -1,5 +1,7 @@
 package android.huyhuynh.orderapp.views;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.huyhuynh.orderapp.R;
 import android.huyhuynh.orderapp.model.DataModel;
@@ -127,7 +129,7 @@ public class MenuActivity extends AppCompatActivity implements DataOrderDialog, 
     public void sendOrder(View view) {
         //Sự kiện button order
         if (tonggia==0){
-            Toast.makeText(MenuActivity.this,"Mời bạn chọn thức uống!",Toast.LENGTH_SHORT).show();
+            thongBao("Mời bạn chọn thức uống để order!");
         } else {
             if (btnOrder.getText().toString().equals("Order khác!")) {
                 btnOrder.setText(0 + "vnđ\nOrder Ngay!");
@@ -163,5 +165,18 @@ public class MenuActivity extends AppCompatActivity implements DataOrderDialog, 
                 Log.d("AAA","MenuActivity162 - "+t.toString());
             }
         });
+    }
+
+    private void thongBao(String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
+        builder.setTitle("Thông báo");
+        builder.setMessage(message);
+        builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.show();
     }
 }

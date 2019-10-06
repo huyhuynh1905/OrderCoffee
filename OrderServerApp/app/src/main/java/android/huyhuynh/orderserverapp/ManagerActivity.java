@@ -1,5 +1,6 @@
 package android.huyhuynh.orderserverapp;
 
+import android.content.Intent;
 import android.huyhuynh.orderserverapp.views.FragmentBan;
 import android.huyhuynh.orderserverapp.views.FragmentMenu;
 import android.huyhuynh.orderserverapp.views.FragmentNhanSu;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 
 public class ManagerActivity extends AppCompatActivity {
     private TextView mTextMessage,usermanemanager;
+    public static String user = "";
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -57,11 +59,14 @@ public class ManagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager);
         BottomNavigationView navView = findViewById(R.id.nav_view);
+        Intent intent = getIntent();
+        user = intent.getStringExtra("username");
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,
                 new FragmentNhanSu()).commit();
         init();
+        usermanemanager.setText(user);
     }
 
     private void init() {
@@ -84,6 +89,9 @@ public class ManagerActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.menulogout:
                         //
+                        Intent intent = new Intent(ManagerActivity.this,MainActivity.class);
+                        startActivity(intent);
+                        finish();
                         break;
                 }
                 return true;

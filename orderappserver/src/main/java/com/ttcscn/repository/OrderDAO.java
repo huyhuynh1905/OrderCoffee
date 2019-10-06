@@ -6,8 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import com.ttcscn.entity.HoanThanh;
 import com.ttcscn.entity.Order;
 
 @Repository("orderDao")
@@ -61,13 +59,6 @@ public class OrderDAO implements Dao<Order> {
 	public Order findById(String maOrder) {
 		Session session = sessionHibernate.getCurrentSession();
 		return session.get(Order.class, maOrder);
-	}
-	
-	HoanThanhDAO hoanthanhDao;
-	//hoanthanhOrder
-	public void changeOrder(Order order) {
-		HoanThanh hoanthanh = new HoanThanh(order.getMaOrder(), order.getDonGiaOrder(), "HoanThanh");
-		hoanthanhDao.save(hoanthanh);
 	}
 
 	public String update(Order t) {

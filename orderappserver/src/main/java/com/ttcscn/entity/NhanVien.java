@@ -22,9 +22,9 @@ public class NhanVien {
 	private boolean chucVu;
 	
 	public NhanVien() {
-		this.username = "";
-		this.password = "";
-		this.hoTen = "";
+		this.username = "null";
+		this.password = "null";
+		this.hoTen = "null";
 		this.namSinh = 0;
 		this.soDienThoai = "";
 		this.diaChi = "";

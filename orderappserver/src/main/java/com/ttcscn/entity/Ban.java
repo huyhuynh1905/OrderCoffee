@@ -44,7 +44,4 @@ public class Ban {
 	public String toString() {
 		return "Ban [maBan=" + maBan + ", tenBan=" + tenBan + ", moTa=" + moTa + "]";
 	}
-	
-	
-
 }

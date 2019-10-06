@@ -34,9 +34,6 @@ public class OrderService {
 	public Order findOrder(String maOrder) {
 		return orderDao.findById(maOrder);
 	}
-	public void hoanThanhOrder(Order order) {
-		orderDao.changeOrder(order);
-	}
 	//
 	public List<Order> chuaOrder(){
 		return orderDao.chuaOder();

@@ -85,7 +85,8 @@ public class NhanVienController {
 		if(login) {
 			return nhanvienService.findNhanVienById(username);
 		} else {
-			return new NhanVien();
+			NhanVien nv = new NhanVien();
+			return nv;
 		}
 	}
 }

@@ -2,6 +2,7 @@ package android.huyhuynh.orderserverapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.huyhuynh.orderserverapp.model.DanhSachOrder;
 import android.huyhuynh.orderserverapp.model.DanhSachOrderAdapter;
 import android.huyhuynh.orderserverapp.model.MenuOrder;
@@ -35,6 +36,7 @@ public class OrderActivity extends AppCompatActivity {
     List<DanhSachOrder> arrOrder = new ArrayList<>();
     List<MenuOrder> arrMenuOrder = new ArrayList<>();
     int selectItemOrder = -1;
+    String user = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,9 @@ public class OrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order);
 
         init();
+
+        Intent intent = getIntent();
+        user = intent.getStringExtra("username");
         lvOrder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -113,7 +118,7 @@ public class OrderActivity extends AppCompatActivity {
         DataClient dataClient = APIUltils.getDataClient();
         if (selectItemOrder!=-1){
             final DanhSachOrder sachOrder = arrOrder.get(selectItemOrder);
-            sachOrder.setMessage("huyhuynh19");
+            sachOrder.setMessage(user);
             retrofit2.Call<Message> callback = dataClient.xacNhanOrder(sachOrder);
             callback.enqueue(new Callback<Message>() {
                 @Override
@@ -174,7 +179,12 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     public void logOutOrder(View view) {
-
+        Intent intent = new Intent(OrderActivity.this,MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
+    public void lamMoi(View view) {
+        loadListOrder();
+    }
 }

@@ -29,7 +29,6 @@ public class BanController {
 	}
 	
 	@RequestMapping(value = "/ban/add", method = RequestMethod.POST)
-	@ResponseBody
 	public Message saveBan(@RequestBody Ban ban) {
 		Message mess = new Message();
 		Ban b = banService.findBanById(ban.getMaBan());
@@ -42,7 +41,6 @@ public class BanController {
 	}
 	
 	@RequestMapping(value = "/ban/update", method = RequestMethod.POST)
-	@ResponseBody
 	public Message updateBan(@RequestBody Ban ban) {
 		Message mess = new Message();
 		Ban b = banService.findBanById(ban.getMaBan());
@@ -55,7 +53,6 @@ public class BanController {
 	}
 	
 	@RequestMapping(value = "/ban/delete", method = RequestMethod.POST)
-	@ResponseBody
 	public Message deleteBan(@RequestBody Ban ban) {
 		Message mess = new Message();
 		Ban b = banService.findBanById(ban.getMaBan());
@@ -68,13 +65,11 @@ public class BanController {
 	}
 	
 	@RequestMapping(value = "/ban/find", method = RequestMethod.GET)
-	@ResponseBody
 	public Ban findBan(@RequestParam("maBan") String maBan) {
 		return banService.findBanById(maBan);
 	}
 	
 	@RequestMapping(value = "/ban/find", method = RequestMethod.POST)
-	@ResponseBody
 	public Ban findBanByPost(@RequestParam("maBan") String maBan) {
 		return banService.findBanById(maBan);
 	}

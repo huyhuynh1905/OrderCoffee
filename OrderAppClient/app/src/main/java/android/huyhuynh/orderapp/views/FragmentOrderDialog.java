@@ -2,7 +2,6 @@ package android.huyhuynh.orderapp.views;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.huyhuynh.orderapp.MainActivity;
 import android.huyhuynh.orderapp.R;
 import android.huyhuynh.orderapp.model.Menu;
 import android.huyhuynh.orderapp.model.Order;
@@ -13,7 +12,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

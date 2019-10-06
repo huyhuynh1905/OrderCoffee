@@ -46,10 +46,9 @@ public class NhanVienDAO implements Dao<NhanVien>{
 	
 	public boolean loginToServer(String username,String password) {
 		Session session = sessionHibernate.getCurrentSession();
-		String query = "from User where username=? and password=?";
-		String sql = "from nhanvien nv where nv.username = "+username+" and nv.password = "+password;
+		String sql = "from nhanvien where username = '"+username+"' and password = '"+password+"'";
 		List<NhanVien> nv = session.createQuery(sql).getResultList();
-		if(nv!=null) {
+		if(nv.size()>0) {
 			return true;
 		} else return false;
 	}

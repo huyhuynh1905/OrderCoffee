@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="1275dp"
     android:layout_height="627dp"
-    android:background="#E3B1B1"
+    android:background="#C5EAF0"
     tools:context=".OrderActivity">
 
     <LinearLayout

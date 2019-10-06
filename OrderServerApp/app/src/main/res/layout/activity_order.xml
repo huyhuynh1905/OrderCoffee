@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E3B1B1"
+    android:background="#C5EAF0"
     tools:context=".OrderActivity">
 
     <LinearLayout
@@ -70,7 +70,7 @@
         android:layout_marginEnd="26dp"
         android:layout_marginRight="26dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="#000000"
+        android:background="#7E1A1A"
         app:layout_constraintStart_toEndOf="@+id/layoutnv"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -133,7 +133,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="56dp"
             android:layout_marginRight="56dp"
-            android:text="Tổng Giá: 150.000vnđ"
+            android:text="Tổng Giá: 0vnđ"
             android:textColor="#fff"
             android:textSize="50px"
             app:layout_constraintEnd_toEndOf="parent"
@@ -147,7 +147,7 @@
             android:layout_marginLeft="55dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="35dp"
-            android:text="Tên Bàn: Bàn số 5"
+            android:text="Tên Bàn:"
             android:textColor="#fff"
             android:textSize="50px"
             app:layout_constraintBottom_toTopOf="@+id/layoutlvmenuorder"
@@ -175,15 +175,15 @@
         android:id="@+id/btnHuy"
         android:layout_width="145dp"
         android:layout_height="60dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="75dp"
-        android:text="Huỷ"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/select_button_huy"
         android:onClick="huyOrder"
-        android:textSize="50px"
+        android:text="Huỷ"
         android:textAllCaps="false"
         android:textColor="#fff"
-        android:background="@drawable/select_button_huy"
+        android:textSize="50px"
         app:layout_constraintStart_toEndOf="@+id/btnXacNhan"
         app:layout_constraintTop_toBottomOf="@+id/layoutShow" />
 
@@ -201,5 +201,21 @@
         android:textColor="#fff"
         android:background="@drawable/select_button_logout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutShow" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="145dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/select_button_sua"
+        android:onClick="lamMoi"
+        android:text="Làm mới"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="50px"
+        app:layout_constraintStart_toEndOf="@+id/btnHuy"
         app:layout_constraintTop_toBottomOf="@+id/layoutShow" />
 </androidx.constraintlayout.widget.ConstraintLayout>

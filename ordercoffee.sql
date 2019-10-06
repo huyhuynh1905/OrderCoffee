@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 19, 2019 lúc 05:49 PM
+-- Thời gian đã tạo: Th10 04, 2019 lúc 04:28 PM
 -- Phiên bản máy phục vụ: 10.3.16-MariaDB
 -- Phiên bản PHP: 7.2.20
 
@@ -39,28 +39,16 @@ CREATE TABLE `ban` (
 --
 
 INSERT INTO `ban` (`maBan`, `tenBan`, `moTa`) VALUES
-('MB01', NULL, 'Góc 9h'),
-('MB02', NULL, 'Góc 1h'),
-('MB03', NULL, 'Góc 2h'),
-('MB04', NULL, 'Góc 6h'),
-('MB05', NULL, 'Góc 8h'),
-('MB06', NULL, 'Góc 7h'),
-('MB07', NULL, 'Góc 11h'),
-('MB08', NULL, 'Góc 4h'),
-('MB09', NULL, 'Góc 3h'),
-('MB10', NULL, 'Góc 5h');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `hoanthanh`
---
-
-CREATE TABLE `hoanthanh` (
-  `maDaOrder` varchar(50) NOT NULL,
-  `tongGia` double NOT NULL,
-  `tinhTrang` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+('MB01', 'Bàn 1', 'Góc 9h30'),
+('MB02', 'Bàn 2', 'Góc 1h'),
+('MB03', 'Bàn 3', 'Góc 2h'),
+('MB04', 'Bàn 4', 'Góc 6h'),
+('MB05', 'Bàn 5', 'Góc 8h'),
+('MB06', 'Bàn 6', 'Góc 7h'),
+('MB07', 'Bàn 7', 'Góc 11h'),
+('MB08', 'Bàn 8', 'Góc 4h'),
+('MB09', 'Bàn 9', 'Góc 3h'),
+('MB10', 'Bàn 10', 'Góc 5h');
 
 -- --------------------------------------------------------
 
@@ -95,7 +83,7 @@ INSERT INTO `menu` (`maThucUong`, `tenThucUong`, `donGia`, `hinhAnh`, `ghiChu`) 
 ('NLO03', 'Trà Chanh', 22000, 'http://192.168.1.102:86/ordercoffee/image/tealipton.png', NULL),
 ('NLO04', 'Nước Chanh Leo', 19000, 'http://192.168.1.102:86/ordercoffee/image/nuocchanh.png', NULL),
 ('NLO05', 'Sữa Tươi', 18000, 'http://192.168.1.102:86/ordercoffee/image/milk.png', NULL),
-('NLO06', 'Nước Dừa', 18000, 'http://192.168.1.102:86/ordercoffee/image/coconut.png', NULL);
+('NLO06', 'Nước Dừa', 18000, 'http://192.168.1.102:86/ordercoffee/image/coconut.png', 'tess');
 
 -- --------------------------------------------------------
 
@@ -124,32 +112,34 @@ INSERT INTO `nhanvien` (`username`, `password`, `hoTen`, `namSinh`, `soDienThoai
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `taborder`
+-- Cấu trúc bảng cho bảng `ordertab`
 --
 
-CREATE TABLE `taborder` (
+CREATE TABLE `ordertab` (
   `maOrder` varchar(50) NOT NULL,
   `maBan` varchar(4) NOT NULL,
   `maThucUong` varchar(5) NOT NULL,
   `soLuong` int(11) NOT NULL,
   `donGiaOrder` double NOT NULL,
   `ghiChu` varchar(50) DEFAULT NULL,
-  `nguoiOrder` varchar(48) DEFAULT NULL
+  `nguoiOrder` varchar(48) DEFAULT NULL,
+  `tinhTrang` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `taborder`
+-- Đang đổ dữ liệu cho bảng `ordertab`
 --
 
-INSERT INTO `taborder` (`maOrder`, `maBan`, `maThucUong`, `soLuong`, `donGiaOrder`, `ghiChu`, `nguoiOrder`) VALUES
-('11111111', 'MB01', 'COF01', 2, 36000, NULL, NULL),
-('11111111', 'MB01', 'NLO01', 1, 8000, NULL, NULL),
-('22222222', 'MB02', 'NGO02', 1, 20000, NULL, NULL),
-('22222222', 'MB02', 'NLO06', 2, 36000, NULL, NULL),
-('33333333', 'MB05', 'NLO04', 3, 57000, NULL, NULL),
-('33333333', 'MB05', 'NLO03', 1, 22000, NULL, NULL),
-('44444444', 'MB07', 'NEP04', 1, 25000, NULL, NULL),
-('44444444', 'MB07', 'NLO02', 2, 4800, NULL, NULL);
+INSERT INTO `ordertab` (`maOrder`, `maBan`, `maThucUong`, `soLuong`, `donGiaOrder`, `ghiChu`, `nguoiOrder`, `tinhTrang`) VALUES
+('-2053638985', 'MB02', 'NEP01', 2, 42000, '', 'user1', 0),
+('-2053638985', 'MB02', 'NEP02', 2, 50000, '', 'user1', 0),
+('-2053638985', 'MB02', 'NLO04', 1, 19000, '', 'user1', 0),
+('-2053638985', 'MB02', 'NLO06', 1, 18000, '', 'user1', 0),
+('-2053771255', 'MB02', 'NLO04', 1, 19000, '', 'huyhuynh19', 1),
+('-2053771255', 'MB02', 'NLO06', 1, 18000, '', 'huyhuynh19', 1),
+('-2137966662', 'MB03', 'COF02', 2, 40000, '', 'huyhuynh', 0),
+('-2137966662', 'MB03', 'NEP03', 1, 23000, '', 'huyhuynh', 0),
+('-2138252421', 'MB03', 'NLO06', 2, 36000, '', 'huyhuynh19', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -162,12 +152,6 @@ ALTER TABLE `ban`
   ADD PRIMARY KEY (`maBan`);
 
 --
--- Chỉ mục cho bảng `hoanthanh`
---
-ALTER TABLE `hoanthanh`
-  ADD PRIMARY KEY (`maDaOrder`);
-
---
 -- Chỉ mục cho bảng `menu`
 --
 ALTER TABLE `menu`
@@ -178,6 +162,12 @@ ALTER TABLE `menu`
 --
 ALTER TABLE `nhanvien`
   ADD PRIMARY KEY (`username`);
+
+--
+-- Chỉ mục cho bảng `ordertab`
+--
+ALTER TABLE `ordertab`
+  ADD PRIMARY KEY (`maOrder`,`maBan`,`maThucUong`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
