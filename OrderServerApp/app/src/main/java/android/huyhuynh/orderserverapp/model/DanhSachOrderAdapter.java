@@ -1,7 +1,6 @@
 package android.huyhuynh.orderserverapp.model;
 
 import android.content.Context;
-import android.huyhuynh.orderserverapp.OrderActivity;
 import android.huyhuynh.orderserverapp.R;
 import android.view.LayoutInflater;
 import android.view.View;

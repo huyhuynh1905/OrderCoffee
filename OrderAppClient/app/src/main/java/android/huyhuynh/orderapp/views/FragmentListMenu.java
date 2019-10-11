@@ -1,8 +1,7 @@
 package android.huyhuynh.orderapp.views;
 
-import android.app.Dialog;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.huyhuynh.orderapp.MainActivity;
 import android.huyhuynh.orderapp.R;
 import android.huyhuynh.orderapp.model.Menu;
 import android.huyhuynh.orderapp.model.MenuAdapter;
@@ -48,9 +47,13 @@ public class FragmentListMenu extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        FragmentOrderDialog fragmentOrderDialog = new FragmentOrderDialog();
-        fragmentOrderDialog.setPositionfromlist(position);
-        fragmentOrderDialog.show(getFragmentManager(),"fragmentDialog");
+        if (MenuActivity.bol==false){
+            thongBao("Nhấn vào nút \"Order khác!\" để tiếp tục đặt!");
+        } else {
+            FragmentOrderDialog fragmentOrderDialog = new FragmentOrderDialog();
+            fragmentOrderDialog.setPositionfromlist(position);
+            fragmentOrderDialog.show(getFragmentManager(), "fragmentDialog");
+        }
         super.onListItemClick(l, v, position, id);
     }
 
@@ -67,6 +70,7 @@ public class FragmentListMenu extends ListFragment {
                     for (Menu mn : menus){
                         Menu menu = new Menu(mn.getMaThucUong(),mn.getTenThucUong(),mn.getDonGia(),
                                 mn.getHinhAnh(),mn.getGhiChu());
+                        Log.d("AAA","loadList - "+ mn.getHinhAnh());
                         arrMenu.add(menu);
                     }
                     mMenuAdapter.notifyDataSetChanged();
@@ -80,5 +84,17 @@ public class FragmentListMenu extends ListFragment {
                 Log.d("AAA",t.toString());
             }
         });
+    }
+    private void thongBao(String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Thông báo");
+        builder.setMessage(message);
+        builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.show();
     }
 }

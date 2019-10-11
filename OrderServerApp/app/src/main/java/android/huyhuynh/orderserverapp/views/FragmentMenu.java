@@ -181,7 +181,7 @@ public class FragmentMenu extends Fragment {
             String ghichu = edtGhichuTu.getText().toString().trim();
             String linkimage = menuClick.getHinhAnh();
             if (!file_path.equals("")){
-                linkimage = "http://192.168.1.102:86/ordercoffee/image/"+file_path;
+                linkimage = "http://192.168.43.106:86/ordercoffee/image/"+file_path;
             }
             Menu mn = new Menu(matu,tentu,gia,linkimage,ghichu);
             DataClient dataClient = APIUltils.getDataClient();
@@ -217,7 +217,7 @@ public class FragmentMenu extends Fragment {
             String tentu = edtTenTu.getText().toString().trim();
             double gia = Double.parseDouble(edtDongiaTu.getText().toString().trim());
             String ghichu = edtGhichuTu.getText().toString().trim();
-            String linkimage = "http://192.168.1.102:86/ordercoffee/image/"+file_path;
+            String linkimage = "http://192.168.43.106:86/ordercoffee/image/"+file_path;
 
             Menu mn = new Menu(matu,tentu,gia,linkimage,ghichu);
             DataClient dataClient = APIUltils.getDataClient();

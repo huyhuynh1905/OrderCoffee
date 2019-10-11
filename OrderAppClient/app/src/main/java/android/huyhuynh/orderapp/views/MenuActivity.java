@@ -41,8 +41,9 @@ public class MenuActivity extends AppCompatActivity implements DataOrderDialog, 
     Button btnOrder;
     public static List<Order> arrOrder;
     public static List<Menu> arrMenuOrder;
-    public double tonggia = 0;
+    public static double tonggia = 0;
     public static String maBan = "";
+    public static boolean bol = true;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -136,12 +137,14 @@ public class MenuActivity extends AppCompatActivity implements DataOrderDialog, 
                 tonggia = 0;
                 arrOrder.clear();
                 arrMenuOrder.clear();
+                bol = true;
             } else {
                 int current = (int) System.currentTimeMillis();
                 for (Order order : arrOrder) {
                     order.setMaOrder(String.valueOf(current));
                 }
                 sendOrderToServer();
+                bol =false;
                 btnOrder.setText("Order khác!");
             }
         }

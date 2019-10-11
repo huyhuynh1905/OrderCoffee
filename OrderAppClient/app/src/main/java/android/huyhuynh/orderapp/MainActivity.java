@@ -10,7 +10,6 @@ import android.huyhuynh.orderapp.retrofit2.DataClient;
 import android.huyhuynh.orderapp.views.MenuActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -21,8 +20,6 @@ import com.google.zxing.integration.android.IntentResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,7 +27,6 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     ImageView btnImgQuetma;
     IntentIntegrator intentIntegrator;
-    public static List<Menu> arrMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         intentIntegrator = new IntentIntegrator(this);
         intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE); //Kiểu quét
-        intentIntegrator.setPrompt("Quét mã QR trên bàn!"); // dòng chữ tr
+        intentIntegrator.setPrompt("Quét mã QR trên bàn!");
         intentIntegrator.setOrientationLocked(false);
         intentIntegrator.setBeepEnabled(false); //Tiếng kêu sau khi quét xong
         intentIntegrator.setBarcodeImageEnabled(true);
@@ -65,11 +61,6 @@ public class MainActivity extends AppCompatActivity {
                 //Không quét ra hoặc bấm phím back
                 Toast.makeText(this, "Không quét được!", Toast.LENGTH_LONG).show();
                 recreate();
-                /*Intent intent = new Intent(MainActivity.this, SplashWellcome.class);
-                startActivity(intent);
-                finish();*/
-                /*Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-                startActivity(intent);*/
             } else {
                 try {
                     JSONObject jsonObject = new JSONObject(intentResult.getContents());

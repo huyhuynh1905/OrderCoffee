@@ -5,7 +5,7 @@ package android.huyhuynh.orderserverapp.retrofit;
  */
 public class APIUltils {
 
-    public static final String baseUrl = "http://192.168.1.102:8080/orderappserver/";
+    public static final String baseUrl = "http://192.168.43.106:8080/orderappserver/";
 
     public static DataClient getDataClient(){
         return RetrofitClient.getClient(baseUrl).create(DataClient.class);

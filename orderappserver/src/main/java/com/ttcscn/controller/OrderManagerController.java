@@ -55,7 +55,7 @@ public class OrderManagerController {
 				if(i!=-1) {
 					tongGia = 0;
 					for(MenuOrder menuOrder : arrOrderMaganer.get(i).getListMenuOrder()) {
-						tongGia += menuOrder.getDonGia();
+						tongGia = tongGia + menuOrder.getDonGia();
 					}
 					arrOrderMaganer.get(i).setTongGia(tongGia);
 				}
@@ -67,6 +67,14 @@ public class OrderManagerController {
 				orderManager.setListMenuOrder(arrMenuOrders);
 				arrOrderMaganer.add(orderManager);
 				i+=1;
+			}
+			if(i!=-1) {
+				List<MenuOrder> list0 = arrOrderMaganer.get(i).getListMenuOrder();
+				tongGia = 0;
+				for(MenuOrder mn : list0) {
+					tongGia = tongGia + mn.getDonGia();
+				}
+				arrOrderMaganer.get(i).setTongGia(tongGia);
 			}
 			
 		}

@@ -1,7 +1,6 @@
 package android.huyhuynh.orderserverapp.views;
 
 import android.huyhuynh.orderserverapp.ManagerActivity;
-import android.huyhuynh.orderserverapp.OrderActivity;
 import android.huyhuynh.orderserverapp.R;
 import android.huyhuynh.orderserverapp.model.DanhSachOrder;
 import android.huyhuynh.orderserverapp.model.DanhSachOrderAdapter;
@@ -52,7 +51,8 @@ public class FragmentOrder extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_order,container,false);
         //Ánh xạ
         btnXacNhanFr = view.findViewById(R.id.btnXacNhanFrag);
